@@ -11,62 +11,46 @@
         h1 { font-size: 2rem; color: #38bdf8; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         
-        .video-box { background-color: #1e293b; padding: 25px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 40px; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-top: 15px; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        / Estilo dos Slides Interativos /
+        .slide-box { background-color: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 40px; text-align: center; }
+        .slide-content { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; background-color: #0f172a; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
+        .slide-content h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 15px; }
+        .slide-content p { color: #94a3b8; font-size: 1.1rem; max-width: 750px; }
         
+        .slide-buttons { display: flex; justify-content: center; gap: 15px; align-items: center; }
+        .slide-btn { background-color: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .slide-btn:hover { background-color: #0ea5e9; }
+        #slide-counter { color: #94a3b8; font-weight: bold; }
+        / Módulos correspondentes /
         .modules-section { background-color: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; }
         .modules-section h2 { color: #38bdf8; margin-bottom: 25px; font-size: 1.8rem; text-align: center; }
-        
         .module-card { background-color: #0f172a; padding: 25px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #334155; }
         .module-card h3 { color: #38bdf8; font-size: 1.3rem; margin-bottom: 10px; }
-        .module-card p { color: #94a3b8; font-size: 1rem; margin-bottom: 12px; }
-        .module-card ul { color: #94a3b8; padding-left: 20px; font-size: 0.95rem; }
-        .module-card li { margin-bottom: 6px; }
+        .module-card p { color: #94a3b8; font-size: 1rem; margin-bottom: 10px; }
         footer { text-align: center; padding: 30px; background-color: #020617; color: #64748b; margin-top: 50px; }
     </style>
 </head>
 <body>
     <header>
         <h1>Área de Membros - IA na Prática</h1>
-        <p style="color: #94a3b8; font-size: 1rem; margin-top: 5px;">Seu portal completo para dominar as IAs e faturar na internet.</p>
+        <p style="color: #94a3b8; font-size: 1rem; margin-top: 5px;">Aulas em formato de slides e cronograma completo de renda extra.</p>
     </header>
     <div class="container">
-        <!-- Vídeo Principal da Aula -->
-        <div class="video-box">
-            <h2 style="color: #f8fafc; font-size: 1.4rem; margin-bottom: 5px;">🎥 Aula em Destaque</h2>
-            <p style="color: #94a3b8; font-size: 0.95rem;">Assista à aula abaixo para entender o panorama completo de como gerar renda extra hoje mesmo.</p>
-            <div class="video-container">
-                <!-- Substitua o link do src pelo link incorporado do seu vídeo no YouTube -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo da Aula" allowfullscreen></iframe>
+        <!-- Apresentação em 5 Slides -->
+        <div class="slide-box">
+            <h2 style="color: #f8fafc; font-size: 1.3rem; margin-bottom: 15px;">📊 Apresentação das Aulas</h2>
+            
+            <div class="slide-content" id="slide-display">
+                <!-- O conteúdo do slide muda automaticamente aqui -->
+            </div>
+            <div class="slide-buttons">
+                <button class="slide-btn" onclick="mudarSlide(-1)">⬅ Anterior</button>
+                Slide 1 de 5
+                <button class="slide-btn" onclick="mudarSlide(1)">Próximo ➡</button>
             </div>
         </div>
-        <!-- Conteúdo Completo dos Módulos com Informações de Renda Extra -->
+        <!-- Módulos Correspondentes às Aulas -->
         <div class="modules-section">
             <h2>Módulos do Treinamento</h2>
             
-            <div class="module-card">
-                <h3>Módulo 1: O Poder do ChatGPT para Criar Conteúdo</h3>
-                <p>Nesta aula, você aprende a dominar os comandos (prompts) secretos para fazer o ChatGPT escrever textos de vendas, artigos e copies magnéticas em segundos.</p>
-                <ul>
-                    <li>Como criar estrutura de vendas sem saber escrever bem;</li>
-                    <li>Ferramentas de automação de mensagens para atendimento;</li>
-                    <li>Estratégia prática para achar clientes na internet.</li>
-                </ul>
-            </div>
-            <div class="module-card">
-                <h3>Módulo 2: Criando Imagens e Artes com Midjourney</h3>
-                <p>Esqueça designer caro. Aqui você vai aprender a gerar imagens profissionais, logotipos e ilustrações impressionantes usando inteligência artificial.</p>
-                <ul>
-                    <li>Como transformar ideias simples em artes hiper-realistas;</li>
-                    <li>Criando posts para Instagram que chamam atenção e geram cliques;</li>
-                    <li>Ferramentas 100% gratuitas para complementar suas edições.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2026 IA na Prática. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+            <div class="
