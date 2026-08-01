@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <script>
+ <script>
         const slides = [
             {
                 badge: "Slide 01",
@@ -74,8 +74,33 @@
                 content: '<p><strong>1. AGÊNCIA DE CONTEÚDO — Como funciona:</strong> Você cria UM prompt modelo pedindo: "Escreva 5 posts sobre [tema], com tom amigável, chamada para ação e hashtags". Depois manda: "Agora reescreva cada um de 3 formas diferentes". Com UMA mensagem, gera 15 conteúdos. É só entregar e cobrar do cliente.</p><p><strong>2. ENGENHARIA DE PROMPT — As 3 técnicas:</strong> • <strong>Few-Shot:</strong> Dê EXEMPLOS prontos antes de pedir: "Faça igual a este texto modelo...". • <strong>Chain-of-Thought:</strong> Mande: "Pense passo a passo antes de responder, mostre como chegou ao resultado". • <strong>Delimitação:</strong> Use colchetes para separar o texto: "Analise o texto a seguir: [conteúdo aqui]".</p><p><strong>3. CONSULTORIA EMPRESARIAL — Como aplicar e cobrar:</strong> Visite a empresa e veja onde perdem tempo: atendimento, e-mails, orçamentos. Crie um prompt padrão: "Você é o atendente da empresa X, responda com base nestas regras...". Coloque no WhatsApp ou e-mail. A IA responde sozinha. Você cobra R$ 500 a R$ 2.000 de instalação + R$ 100 a R$ 300 por mês de manutenção.</p>',
                 titleFooter: "Slide 2: Monetização em Grande Escala",
                 descFooter: "De simples freelancer a consultor de alto valor: aprenda a estruturar negócios usando IA."
+            },
+            {
+                badge: "Slide 03",
+                titleHeader: "Automação Completa e Escala de Ganhos",
+                descHeader: "Leve seus resultados ao próximo nível com sistemas automáticos.",
+                content: '<p><strong>1. ASSISTENTE VIRTUAL PERSONALIZADO:</strong> Você treina a IA com seus próprios dados: "A partir de agora você é meu assistente. Responda sempre com base nestas regras...". A IA passa a agir como se fosse você, atendendo clientes e respondendo dúvidas sozinha.</p><p><strong>2. VENDA DE PACOTES DE PROMPTS:</strong> Crie, teste e organize os melhores comandos separados por nicho — vendas, marketing, atendimento. Cria UMA vez e vende infinitamente. Sem estoque, sem frete, sem custo extra.</p><p><strong>3. CONTEÚDO EM MASSA E AFILIADOS:</strong> Use a IA para gerar dezenas de artigos e vídeos com dicas sobre produtos que você indica. Quanto mais conteúdo útil, mais pessoas te encontram e compram pelo seu link.</p><p><strong>4. QUANTO COBRAR:</strong> Agência de conteúdo: R$ 300 a R$ 1.500 por cliente/mês. Consultoria de automação: R$ 1.000 a R$ 5.000 por projeto. Pacote de prompts: R$ 47 a R$ 197. O valor está na transformação que você entrega, não no tempo que gastou.</p>',
+                titleFooter: "Slide 3: Automação e Escala",
+                descFooter: "Trabalhe de forma inteligente: a IA executa, você lidera e lucra em escala."
+            },
+            {
+                badge: "Slide 04",
+                titleHeader: "Como Montar e Vender Cursos com IA",
+                descHeader: "Crie materiais de alto valor sem ser especialista no assunto.",
+                content: '<p><strong>1. ESTRUTURAÇÃO DO CURSO DO ZERO:</strong> Peça para a IA: "Crie um sumário completo de um curso sobre [tema], dividido em 5 módulos com 4 aulas cada". Ela monta toda a estrutura lógica. Depois você pede: "Agora desenvolva o conteúdo da aula 1 com exemplos práticos e linguagem simples". Em poucas horas você tem um curso inteiro pronto.</p><p><strong>2. MATERIAIS COMPLEMENTARES:</strong> Além das aulas, peça para gerar exercícios, gabaritos, apostilas resumidas e materiais de apoio. A IA cria tudo formatado e pronto para entregar. Você só revisa e dá o seu toque final.</p><p><strong>3. COMO LANÇAR E VENDER:</strong> Use a IA também para criar a página de vendas, os e-mails de sequência e as postagens de divulgação. Com o curso pronto + material de divulgação pronto, você lança e começa a vender. É produto que cria uma vez e vende para sempre.</p>',
+                titleFooter: "Slide 4: Criação e Venda de Cursos",
+                descFooter: "Transforme conhecimento em produto digital: a IA estrutura, você empacota e lucra."
+            },
+            {
+                badge: "Slide 05",
+                titleHeader: "Resumo e Próximos Passos",
+                descHeader: "O que fazer AGORA para começar a ganhar dinheiro com IA.",
+                content: '<p><strong>1. ESCOLHA UMA ESTRATÉGIA:</strong> Não tente fazer tudo ao mesmo tempo. Comece por uma: prestação de serviço, agência de conteúdo, venda de prompts ou criação de cursos. Domine uma primeiro, depois expande.</p><p><strong>2. PRATIQUE TODOS OS DIAS:</strong> Quanto mais você usa a IA, melhores prompts você cria. Comece pedindo textos simples, depois avance para respostas mais complexas. Em 15 dias você já vai estar muito melhor do que hoje.</p><p><strong>3. COMECE A COBRAR PELOS SEUS SERVIÇOS:</strong> Não trabalhe de graça. A IA te dá velocidade, mas o valor está na sua estratégia e no resultado que você entrega. Cobrar barato é erro — cobre pelo resultado, não pelo tempo.</p><p><strong>4. ESCALA É A CHAVE:</strong> Quando você dominar o processo, a IA vai trabalhar enquanto você dorme. O limite dos seus ganhos deixa de ser o tempo que você tem e passa a ser a sua capacidade de organizar e vender.</p>',
+                titleFooter: "Slide 5: Chegou a Sua Vez",
+                descFooter: "A IA é a ferramenta, VOCÊ é o empreendedor. Coloque em prática e transforme conhecimento em dinheiro!"
             }
         ];
+
         let currentSlide = 0;
         function updateSlide() {
             const s = slides[currentSlide];
@@ -86,12 +111,15 @@
             document.querySelector('.slide-footer h2').innerText = s.titleFooter;
             document.querySelector('.slide-footer p').innerText = s.descFooter;
         }
+
         document.querySelectorAll('.btn-nav')[0].addEventListener('click', () => {
             if (currentSlide > 0) { currentSlide--; updateSlide(); }
         });
+
         document.querySelectorAll('.btn-nav')[1].addEventListener('click', () => {
             if (currentSlide < slides.length - 1) { currentSlide++; updateSlide(); }
         });
+
         updateSlide();
     </script>
 </body>
