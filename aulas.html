@@ -11,26 +11,44 @@
         h1 { font-size: 2rem; color: #38bdf8; }
         .container { max-width: 950px; margin: 0 auto; padding: 40px 20px; }
         
-        .slide-box { background-color: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 40px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .slide-content { min-height: 380px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; background-color: #0f172a; border-radius: 12px; border: 1px solid #334155; margin-bottom: 25px; }
-        .slide-img { width: 90px; height: 90px; object-fit: contain; margin-bottom: 20px; border-radius: 12px; background: #1e293b; padding: 10px; border: 1px solid #334155; }
-        .slide-content h2 { color: #38bdf8; font-size: 1.8rem; margin-bottom: 15px; }
-        .slide-content p { color: #94a3b8; font-size: 1.2rem; max-width: 800px; }
+        / Caixa principal do Slide (Palco) /
+        .slide-box { background-color: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .slide-screen { min-height: 320px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; background-color: #0f172a; border-radius: 12px; border: 1px solid #334155; }
+        .slide-img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 15px; border-radius: 12px; background: #1e293b; padding: 10px; border: 1px solid #334155; }
+        .slide-text-inside { color: #f8fafc; font-size: 1.3rem; max-width: 750px; font-weight: 500; }
+        / Área de Descrição e Botões logo abaixo /
+        .slide-footer { background-color: #1e293b; padding: 25px; border-radius: 16px; border: 1px solid #334155; display: flex; flex-direction: column; gap: 15px; }
+        .slide-description h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 8px; }
+        .slide-description p { color: #94a3b8; font-size: 1.1rem; }
+        
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 10px; }
+        .btn { background-color: #38bdf8; color: #0f172a; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background-color: #0ea5e9; }
     </style>
 </head>
 <body>
     <header>
         <h1>Área de Membros - IA na Prática</h1>
-        <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 5px;">Aulas em formato de slides ampliados.</p>
+        <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 5px;">Aulas em formato de slides.</p>
     </header>
     <div class="container">
+        <!-- Caixa do Slide em cima -->
         <div class="slide-box">
-            <h2 style="color: #f8fafc; font-size: 1.4rem; margin-bottom: 20px;">📊 Apresentação das Aulas</h2>
-            
-            <div class="slide-content" id="slide-display">
+            <h2 style="color: #f8fafc; font-size: 1.2rem; margin-bottom: 15px; text-align: left;">📊 Apresentação da Aula</h2>
+            <div class="slide-screen" id="slide-display">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo_2023.svg" alt="ChatGPT" class="slide-img">
-                <h2>Slide 1: O Poder do ChatGPT</h2>
-                <p>Domine os prompts secretos para criar textos de vendas e estruturas magnéticas em segundos para faturar com renda extra.</p>
+                <div class="slide-text-inside">Como fazer dinheiro usando o ChatGPT na prática para faturar com renda extra.</div>
+            </div>
+        </div>
+        <!-- Descrição e Botões embaixo -->
+        <div class="slide-footer">
+            <div class="slide-description">
+                <h2 id="slide-title">Slide 1: O Poder do ChatGPT</h2>
+                <p id="slide-desc">Domine os prompts secretos para criar textos de vendas e estruturas magnéticas em segundos.</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn">Anterior</button>
+                <button class="btn">Próximo</button>
             </div>
         </div>
     </div>
