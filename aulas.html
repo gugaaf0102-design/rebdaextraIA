@@ -11,7 +11,6 @@
         h1 { font-size: 2rem; color: #38bdf8; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         
-        / Estilo dos Slides Interativos /
         .slide-box { background-color: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 40px; text-align: center; }
         .slide-content { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; background-color: #0f172a; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
         .slide-content h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 15px; }
@@ -21,7 +20,6 @@
         .slide-btn { background-color: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; }
         .slide-btn:hover { background-color: #0ea5e9; }
         #slide-counter { color: #94a3b8; font-weight: bold; }
-        / Módulos correspondentes /
         .modules-section { background-color: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; }
         .modules-section h2 { color: #38bdf8; margin-bottom: 25px; font-size: 1.8rem; text-align: center; }
         .module-card { background-color: #0f172a; padding: 25px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #334155; }
@@ -36,21 +34,32 @@
         <p style="color: #94a3b8; font-size: 1rem; margin-top: 5px;">Aulas em formato de slides e cronograma completo de renda extra.</p>
     </header>
     <div class="container">
-        <!-- Apresentação em 5 Slides -->
         <div class="slide-box">
             <h2 style="color: #f8fafc; font-size: 1.3rem; margin-bottom: 15px;">📊 Apresentação das Aulas</h2>
             
-            <div class="slide-content" id="slide-display">
-                <!-- O conteúdo do slide muda automaticamente aqui -->
-            </div>
+            <div class="slide-content" id="slide-display"></div>
             <div class="slide-buttons">
                 <button class="slide-btn" onclick="mudarSlide(-1)">⬅ Anterior</button>
                 Slide 1 de 5
                 <button class="slide-btn" onclick="mudarSlide(1)">Próximo ➡</button>
             </div>
         </div>
-        <!-- Módulos Correspondentes às Aulas -->
         <div class="modules-section">
             <h2>Módulos do Treinamento</h2>
             
-            <div class="
+            <div class="module-card">
+                <h3>Módulo 1: O Poder do ChatGPT</h3>
+                <p>Domine os prompts secretos para criar textos de vendas e estruturas magnéticas em segundos.</p>
+            </div>
+            <div class="module-card">
+                <h3>Módulo 2: Criação de Artes com Midjourney</h3>
+                <p>Gere imagens profissionais e posts que chamam atenção sem precisar saber design.</p>
+            </div>
+            <div class="module-card">
+                <h3>Módulo 3: Automação de Vendas</h3>
+                <p>Configure ferramentas para responder clientes e fechar negócios 24 horas por dia.</p>
+            </div>
+            <div class="module-card">
+                <h3>Módulo 4: Criação de Produtos Digitais</h3>
+                <p>Aprenda a estruturar e empacotar e-books e infoprodutos usando inteligência artificial.</p>
+            </div>
