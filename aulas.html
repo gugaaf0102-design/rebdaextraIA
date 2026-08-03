@@ -17,7 +17,7 @@
             border: 8px solid #0F2B4A;
             border-radius: 20px;
             padding: 30px;
-            min-height: 450px;
+            min-height: 520px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             position: relative;
             margin-bottom: 25px;
@@ -31,8 +31,11 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        .slide h2 { color: #0F2B4A; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
-        .slide p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 12px; }
+        .slide h2 { color: #0F2B4A; font-size: 1.7rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
+        .slide p { color: #333; font-size: 1.02rem; line-height: 1.7; margin-bottom: 10px; }
+        .slide ul { margin: 15px 0; padding-left: 25px; }
+        .slide li { color: #333; margin-bottom: 8px; line-height: 1.6; }
+        .destaque-caixa { background: #F0FDF4; padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #00D1B2; }
 
         /* BOTÕES DE NAVEGAÇÃO DOS SLIDES */
         .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
@@ -76,7 +79,11 @@
         .botao-bonus {
             background: linear-gradient(135deg, #00D1B2, #00BFA5);
         }
-        .botao-ferramentas:hover, .botao-bonus:hover { transform: translateY(-3px); }
+        .botao-ferramentas:hover, .botao-bonus:hover { 
+            transform: translateY(-3px); 
+            color: white;
+            text-decoration: none;
+        }
 
         /* RESPONSIVO */
         @media(max-width: 600px) {
@@ -94,42 +101,106 @@
 
         <!-- SLIDE 1 -->
         <div class="slide ativo" id="slide1">
-            <h2>📌 Aula 1 — Apresentação do Mercado</h2>
-            <p>Aqui você vai entender o tamanho do mercado de Inteligência Artificial e as oportunidades reais para começar a faturar. Não é magia, é tecnologia acessível para todos.</p>
-            <p>Você vai descobrir que não precisa saber programar. Basta saber usar as ferramentas certas da forma correta.</p>
-            <p><strong>O que vamos ver:</strong> Tamanho do mercado, áreas mais lucrativas e como começar do zero.</p>
+            <h2>📌 Aula 1 — Apresentação do Mercado de IA</h2>
+            <p>Bem-vindo(a)! Nesta aula você vai entender o verdadeiro tamanho do mercado de Inteligência Artificial e as oportunidades reais de faturamento que existem HOJE. Não é magia, é tecnologia acessível e lucrativa.</p>
+            
+            <div class="destaque-caixa">
+                <strong>📊 Dados do mercado:</strong> O mercado de IA deve movimentar mais de US$ 1 trilhão até 2030. A maior parte desse crescimento está em pequenos negócios e profissionais independentes que usam a tecnologia para entregar serviços.
+            </div>
+
+            <p><strong>Oportunidades que você vai dominar:</strong></p>
+            <ul>
+                <li>✅ Criação de conteúdo para redes sociais e empresas</li>
+                <li>✅ Serviços de consultoria e otimização de processos</li>
+                <li>✅ Desenvolvimento de produtos digitais e cursos</li>
+                <li>✅ Automação de atendimento e organização para comércios</li>
+            </ul>
+            <p><strong>💡 Dica de ouro:</strong> Você não precisa saber programar. Basta dominar o uso das ferramentas e vender o resultado para quem precisa. É isso que vamos ensinar aqui!</p>
         </div>
 
         <!-- SLIDE 2 -->
         <div class="slide" id="slide2">
             <h2>📌 Aula 2 — Engenharia de Prompts</h2>
-            <p>Aprenda a escrever instruções perfeitas para a IA gerar resultados profissionais. A diferença entre um resultado comum e um excelente está na forma como você pede.</p>
-            <p><strong>Técnicas avançadas:</strong> Definir o papel da IA, dar contexto, estabelecer formato e pedir revisão. Exemplo: "Atue como especialista em marketing, escreva um texto para..."</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
+            <p>Aprender a escrever instruções perfeitas é a habilidade mais valiosa do momento. A diferença entre um resultado comum e um resultado profissional está na forma como você pede à IA.</p>
+            
+            <p><strong>📋 A fórmula dos 4 elementos:</strong></p>
+            <ul>
+                <li><strong>1º — Papel:</strong> Defina quem a IA deve ser. Ex: "Atue como um redator especialista em marketing digital..."</li>
+                <li><strong>2º — Contexto:</strong> Dê informações sobre o assunto. Ex: "O produto é um curso de IA para iniciantes..."</li>
+                <li><strong>3º — Tarefa:</strong> Diga exatamente o que quer. Ex: "Escreva um texto de vendas com tom persuasivo..."</li>
+                <li><strong>4º — Formato:</strong> Defina como quer a resposta. Ex: "Separe em título, introdução, 3 benefícios e chamada para ação."</li>
+            </ul>
+
+            <div class="destaque-caixa">
+                <strong>💡 Técnica avançada:</strong> Peça revisão! Ex: "Agora melhore este texto, deixe mais persuasivo e mais curto." Quanto mais você guia a IA, melhor o resultado.
+            </div>
+
+            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
         </div>
 
         <!-- SLIDE 3 -->
         <div class="slide" id="slide3">
-            <h2>📌 Aula 3 — Agência de Conteúdo</h2>
-            <p>Produza dezenas de posts para clientes usando prompts encadeados. Você cria um modelo e a IA gera variações infinitas em segundos.</p>
-            <p>Defina o tom, o público-alvo, o estilo e a IA entrega pronto para publicar. É possível atender vários clientes ao mesmo tempo com qualidade.</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
+            <h2>📌 Aula 3 — Agência de Conteúdo com IA</h2>
+            <p>Você pode produzir dezenas de posts, textos e materiais para clientes usando prompts encadeados. Cria um modelo uma vez e a IA gera variações infinitas em segundos. É possível atender vários clientes ao mesmo tempo com qualidade profissional.</p>
+            
+            <p><strong>📝 Como funciona na prática:</strong></p>
+            <ul>
+                <li>✅ Você cria o modelo de texto com a voz do cliente</li>
+                <li>✅ A IA gera 5, 10 ou 20 variações com temas diferentes</li>
+                <li>✅ Você revisa rapidamente e entrega pronto</li>
+                <li>✅ Cobra por pacote mensal — R$ 500 a R$ 2.000 por cliente</li>
+            </ul>
+
+            <p><strong>🎯 Tipos de conteúdo mais vendidos:</strong> Posts para Instagram, legendas, artigos para blogs, e-mails de marketing, roteiros de vídeo, textos de anúncios.</p>
+
+            <div class="destaque-caixa">
+                <strong>💡 Dica de ouro:</strong> Defina sempre o tom (inspirador, técnico, descontraído, formal) e o público-alvo. Quanto mais detalhes você dá, menos você precisa ajustar depois.
+            </div>
+
+            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
         </div>
 
         <!-- SLIDE 4 -->
         <div class="slide" id="slide4">
-            <h2>📌 Aula 4 — Consultoria Empresarial</h2>
-            <p>Identifique gargalos em empresas e implemente soluções com IA. Você cobra pelo diagnóstico e pela estratégia implementada.</p>
-            <p>Automatize atendimento, organização de documentos, análise de estoque e processos internos. O valor cobrado por esse tipo de serviço é muito alto.</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier.</p>
+            <h2>📌 Aula 4 — Consultoria Empresarial com IA</h2>
+            <p>Esta é a área com maior valor de faturamento. Você entra em uma empresa, identifica gargalos e implementa soluções usando Inteligência Artificial. O valor cobrado por esse tipo de serviço é muito alto porque gera economia e lucro para o cliente.</p>
+            
+            <p><strong>🔍 O que você pode entregar:</strong></p>
+            <ul>
+                <li>✅ Atendimento automático ao cliente (WhatsApp, site, redes)</li>
+                <li>✅ Organização e classificação automática de documentos</li>
+                <li>✅ Análise de estoque, vendas e concorrentes</li>
+                <li>✅ Criação de respostas padrão e e-mails profissionais</li>
+                <li>✅ Automação de tarefas repetitivas da rotina</li>
+            </ul>
+
+            <p><strong>💰 Quanto cobrar:</strong> Diagnóstico: R$ 300 a R$ 800. Implementação completa: R$ 1.500 a R$ 5.000 por projeto + mensalidade de manutenção.</p>
+
+            <div class="destaque-caixa">
+                <strong>💡 Estratégia vencedora:</strong> Comece oferecendo um diagnóstico GRATUITO mostrando onde a empresa perde tempo. Depois apresente a solução com IA. A pessoa já vê o problema e compra a solução!
+            </div>
+
+            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier, Gemini.</p>
         </div>
 
         <!-- SLIDE 5 -->
         <div class="slide" id="slide5">
             <h2>📌 Aula 5 — Resumo e Próximos Passos</h2>
-            <p>Revisão de tudo que foi aprendido: o mercado, os prompts, a agência de conteúdo e a consultoria empresarial.</p>
-            <p>Agora é com você! Escolha uma área, pratique e comece a oferecer seus serviços. O mercado está aquecido e esperando por você.</p>
-            <p>Bons estudos e muito sucesso! 🚀</p>
+            <p>Parabéns por chegar até aqui! Agora você tem um panorama completo de como ganhar dinheiro com Inteligência Artificial sem precisar programar. Vamos revisar tudo que aprendemos:</p>
+            
+            <ul>
+                <li>📌 <strong>Aula 1:</strong> O mercado é gigante e acessível para todos</li>
+                <li>📌 <strong>Aula 2:</strong> Domine a arte de escrever prompts com a fórmula dos 4 elementos</li>
+                <li>📌 <strong>Aula 3:</strong> Monte sua agência de conteúdo e atenda vários clientes</li>
+                <li>📌 <strong>Aula 4:</strong> Ofereça consultoria e automação para empresas — valores mais altos</li>
+            </ul>
+
+            <div class="destaque-caixa">
+                <strong>🚀 Plano de ação imediato:</strong> Escolha UMA das áreas. Comece praticando GRATUITAMENTE nas ferramentas. Monte um portfólio com 3 exemplos e ofereça para parentes, amigos e empresas da sua região. Comece pequeno e cresça!
+            </div>
+
+            <p><strong>📚 O que vem a seguir:</strong> Acesse a página de Ferramentas para usar os links diretos das IAs. Confira também o Bônus Exclusivo com materiais complementares para acelerar seus resultados.</p>
+            <p style="margin-top: 15px; font-weight: 600;">Bons estudos e muito sucesso! Você é capaz! 🌟</p>
         </div>
 
     </div>
