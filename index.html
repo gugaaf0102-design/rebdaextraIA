@@ -3,71 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA na Prática - Renda Extra na Internet</title>
+    <title>Inteligência Artificial — O Guia Completo</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 60px 20px; text-align: center; border-bottom: 2px solid #334155; }
-        h1 { font-size: 2.5rem; color: #38bdf8; margin-bottom: 20px; }
-        p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 30px auto; }
-        .price-tag { font-size: 1.8rem; color: #22c55e; font-weight: bold; margin-bottom: 25px; }
-        .cta-btn { display: inline-block; background-color: #22c55e; color: white; padding: 18px 40px; font-size: 1.3rem; font-weight: bold; text-decoration: none; border-radius: 50px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); transition: 0.3s; }
-        .cta-btn:hover { background-color: #16a34a; transform: translateY(-2px); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { 
+            background: linear-gradient(180deg, #0A1629 0%, #162D50 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* TÍTULO COM VISUAL DE IMAGEM/ARTE */
+        .titulo-arte {
+            background: linear-gradient(135deg, #0F2B4A, #165DFF);
+            border: 3px solid #00D1B2;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 209, 178, 0.25);
+        }
+
+        .titulo-arte h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #FFFFFF, #00D1B2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.4;
+        }
+
+        .titulo-arte p {
+            color: #E2E8F0;
+            font-size: 1.05rem;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* IMAGEM DE DESTAQUE */
+        .imagem-destaque {
+            background: linear-gradient(135deg, #165DFF 0%, #00D1B2 100%);
+            border-radius: 16px;
+            padding: 60px 30px;
+            text-align: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(22, 93, 255, 0.3);
+        }
+
+        /* CAIXA BRANCA PARA CONTEÚDO */
+        .caixa-conteudo {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .caixa-conteudo h2 {
+            color: #0F2B4A;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #00D1B2;
+            padding-bottom: 10px;
+        }
+
+        .caixa-conteudo p {
+            color: #334155;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* LISTA DE BENEFÍCIOS */
+        .lista-beneficios {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista-beneficios li {
+            padding: 12px 0;
+            border-bottom: 1px solid #E2E8F0;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+
+        .lista-beneficios li:before {
+            content: "✅ ";
+            font-weight: bold;
+            color: #00D1B2;
+        }
+
+        /* CAIXA DE VALOR COM OFERTA */
+        .caixa-valor {
+            background: linear-gradient(135deg, #0F2B4A, #165DFF);
+            color: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .caixa-valor h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .valor-original {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-bottom: 5px;
+        }
+
+        .valor {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin: 5px 0;
+            color: #00D1B2;
+        }
+
+        .valor span {
+            font-size: 1.4rem;
+        }
+
+        .economia {
+            font-size: 1rem;
+            color: #FFD700;
+            margin: 8px 0;
+            font-weight: 600;
+        }
+
+        .parcelamento {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #E2E8F0;
+            padding: 18px 0;
+        }
+
+        .faq-pergunta {
+            font-weight: 600;
+            color: #0F2B4A;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .faq-resposta {
+            color: #64748B;
+            line-height: 1.7;
+            padding-left: 5px;
+        }
+
+        /* AVISO DE ACESSO */
+        .aviso-acesso {
+            background: #FEF3C7;
+            border-left: 5px solid #F59E0B;
+            padding: 20px;
+            border-radius: 10px;
+            color: #92400E;
+            text-align: center;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+
+        /* RODAPÉ */
+        .rodape {
+            text-align: center;
+            color: #94A3B8;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media(max-width: 600px) {
+            .titulo-arte h1 { font-size: 1.6rem; }
+            .caixa-conteudo { padding: 25px; }
+            .valor { font-size: 2.4rem; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>IA na Prática: Sua Renda Extra com Inteligência Artificial</h1>
-        <p>A única oportunidade que você precisa para começar a faturar na internet usando as ferramentas de IA mais avançadas do mercado, mesmo se você estiver começando absolutamente do zero.</p>
-        <div class="price-tag">Por apenas R$ 45,00</div>
-        <a href="https://pay.kiwify.com.br/rV5cdkm" class="cta-btn">Garantir Minha Vaga Agora!</a>
-    </header>
+
 <div class="container">
-        <!-- Caixa de Oportunidade -->
-        <div style="background-color: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155; margin-top: 40px; text-align: center;">
-            <h2 style="color: #38bdf8; margin-bottom: 20px; font-size: 2rem;">Por que essa é a sua grande chance?</h2>
-            <p style="color: #94a3b8; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">O mercado de Inteligência Artificial está explodindo agora. Quem aprender a usar essas ferramentas para criar conteúdos, textos e imagens antes dos outros vai sair na frente e faturar alto. E o melhor: você não precisa saber programar nada!</p>
+
+    <!-- TÍTULO COM VISUAL DE IMAGEM/ARTE -->
+    <div class="titulo-arte">
+        <h1>INTELIGÊNCIA ARTIFICIAL<br>— O GUIA COMPLETO —</h1>
+        <p>Seu investimento em conhecimento para o futuro</p>
+    </div>
+
+    <!-- IMAGEM DE DESTAQUE -->
+    <div class="imagem-destaque">
+        💡 As ferramentas e estratégias que estão transformando o mercado
+    </div>
+
+    <!-- APRESENTAÇÃO DETALHADA -->
+    <div class="caixa-conteudo">
+        <h2>📖 Sobre este Material</h2>
+        <p>Bem-vindo ao guia completo sobre como alcançar resultados concretos com a Inteligência Artificial. Este conteúdo foi desenvolvido para demonstrar que é possível utilizar a tecnologia a seu favor, independentemente de formação ou experiência prévia.</p>
+        
+        <p>Aqui você encontra um método prático e acessível: o caminho passo a passo para dominar as ferramentas certas, criar soluções de valor e começar a faturar. Tudo explicado de forma clara, objetiva e ao alcance de todos.</p>
+
+        <h2>🎯 O QUE VOCÊ IRÁ DOMINAR</h2>
+        <ul class="lista-beneficios">
+            <li>O panorama atual e as oportunidades reais do mercado</li>
+            <li>A arte de criar instruções precisas e profissionais</li>
+            <li>Como oferecer serviços de criação de conteúdo com IA</li>
+            <li>Como prestar consultoria e automação para empresas</li>
+            <li>As melhores ferramentas e onde encontrá-las</li>
+            <li>Um plano de ação para aplicar imediatamente</li>
+        </ul>
+    </div>
+
+    <!-- CAIXA DE VALOR COM OFERTA -->
+    <div class="caixa-valor">
+        <h3>🎓 INVISTA EM SEU FUTURO — ACESSO COMPLETO E VITALÍCIO</h3>
+        <div class="valor-original">De R$ 149,00</div>
+        <div class="valor"><span>R$</span> 45,00</div>
+        <div class="economia">🔥 Você economiza R$ 104,00!</div>
+        <p class="parcelamento">Acesso imediato + Bônus exclusivos inclusos</p>
+    </div>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <div class="caixa-conteudo">
+        <h2>❓ Dúvidas Comuns</h2>
+
+        <div class="faq-item">
+            <div class="faq-pergunta">📌 É necessário saber programar?</div>
+            <div class="faq-resposta">De forma alguma. Todo o conteúdo foi elaborado para qualquer pessoa. Você utilizará ferramentas prontas e acessíveis, sem necessidade de escrever código.</div>
         </div>
-<div class="container">
-        <!-- Seção de Ferramentas e Conteúdo -->
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; margin: 50px 0; background-color: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155;">
-            <div style="flex: 1; min-width: 280px;">
-                <h2 style="color: #38bdf8; margin-bottom: 15px; font-size: 2rem;">Domina o ChatGPT, Midjourney e muito mais!</h2>
-                <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 15px;">Você vai aprender na prática a usar as mesmas inteligências artificiais que os profissionais usam para criar textos que vendem, imagens impressionantes e automatizar tarefas.</p>
-                <p style="color: #94a3b8; font-size: 1.1rem;">Tudo mastigado, clique a clique, para você faturar na internet mesmo que nunca tenha mexido com isso antes!</p>
-            </div>
-            
-            <!-- Imagem focada em faturamento e vendas -->
-            <div style="width: 320px; height: 220px; border-radius: 8px; overflow: hidden; border: 2px solid #38bdf8; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);">
-                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=600&auto=format&fit=crop" alt="Faturamento e Vendas na Internet" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
+
+        <div class="faq-item">
+            <div class="faq-pergunta">📌 As ferramentas ensinadas são gratuitas?</div>
+            <div class="faq-resposta">Sim, a maioria das ferramentas apresentadas possui versão gratuita suficiente para começar. Também indicamos versões avançadas para quem deseja expandir recursos.</div>
         </div>
-        <!-- Seção de FAQ (Perguntas Frequentes) -->
-        <div class="faq-section" style="margin-top: 50px; background-color: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155;">
-            <h2 style="text-align: center; color: #38bdf8; margin-bottom: 30px; font-size: 2rem;">Perguntas Frequentes</h2>
-            
-            <div class="faq-item" style="margin-bottom: 25px;">
-                <h4 style="color: #f8fafc; font-size: 1.2rem; margin-bottom: 8px;">Como vou receber o acesso ao material?</h4>
-                <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Assim que o pagamento for aprovado pela Kiwify, você recebe o acesso diretamente no seu e-mail de forma 100% automatizada.</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 25px;">
-                <h4 style="color: #f8fafc; font-size: 1.2rem; margin-bottom: 8px;">Preciso ter experiência anterior com IA?</h4>
-                <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Zero experiência! O método foi feito pensando em quem está começando absolutamente do zero e quer aprender tudo passo a passo.</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 25px;">
-                <h4 style="color: #f8fafc; font-size: 1.2rem; margin-bottom: 8px;">Vou gastar muito com as ferramentas?</h4>
-                <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Não se preocupe, a grande maioria das ferramentas principais que ensinamos possuem versões gratuitas extremamente poderosas para você começar.</p>
-            </div>
+
+        <div class="faq-item">
+            <div class="faq-pergunta">📌 Por quanto tempo terei acesso?</div>
+            <div class="faq-resposta">Acesso vitalício. Você pode estudar no seu ritmo e revisar o material quantas vezes forem necessárias.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pergunta">📌 Como recebo meu acesso?</div>
+            <div class="faq-resposta">Assim que o pagamento for confirmado, você receberá imediatamente um e-mail com o link exclusivo para acessar todo o conteúdo.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pergunta">📌 Existe garantia?</div>
+            <div class="faq-resposta">Sim! Você tem 7 dias para avaliar o conteúdo. Se não ficar satisfeito, devolvemos 100% do valor investido, sem perguntas.</div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2026 IA na Prática. Todos os direitos reservados.</p>
-    </footer>
+
+    <!-- AVISO DE ACESSO -->
+    <div class="aviso-acesso">
+        🔒 Área protegida. Após a compra, você receberá seu acesso exclusivo por e-mail.
+    </div>
+
+    <!-- RODAPÉ -->
+    <div class="rodape">
+        © 2026 — Inteligência Artificial: O Guia Completo | Todos os direitos reservados
+    </div>
+
+</div>
+
 </body>
 </html>
-<!-- Botão de Acesso Rápido para a Área de Membros -->
-    <div style="text-align: center; padding: 20px; background-color: #020617; border-top: 1px solid #1e293b;">
-        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 10px;">Já é aluno? Faça login para assistir às aulas:</p>
-        <a href="aulas.html" style="display: inline-block; background-color: #334155; color: #38bdf8; padding: 10px 20px; font-size: 0.95rem; font-weight: bold; text-decoration: none; border-radius: 8px; border: 1px solid #475569; transition: 0.3s;">🔑 Entrar na Área de Membros</a>
-    </div>
