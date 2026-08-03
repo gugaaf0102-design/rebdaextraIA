@@ -3,90 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferramentas de IA — Bônus Exclusivo</title>
+    <title>Guia Completo — Mercado de Inteligência Artificial</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 30px 20px; text-align: center; border-bottom: 2px solid #334155; }
-        h1 { font-size: 2rem; color: #38bdf8; }
-        .container { max-width: 950px; margin: 0 auto; padding: 40px 20px; }
-        .ferramenta { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 20px; border-radius: 16px; border: 2px solid #38bdf8; margin-bottom: 25px; box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
-        .ferramenta img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; border: 2px solid #334155; }
-        .ferramenta .nome-ia { display: inline-block; background: linear-gradient(90deg, #10a37f, #0d8065); color: white; padding: 6px 16px; border-radius: 20px; font-size: 1rem; margin-bottom: 12px; font-weight: bold; box-shadow: 0 3px 10px rgba(16,163,127,0.25); }
-        .ferramenta h2 { color: #38bdf8; font-size: 1.4rem; margin-bottom: 10px; }
-        .ferramenta p { color: #e2e8f0; font-size: 1rem; line-height: 1.7; margin-bottom: 8px; }
-        .ferramenta strong { color: #38bdf8; }
-        .bonus { background: linear-gradient(145deg, #10a37f15, #0d806515); border: 3px solid #10a37f; box-shadow: 0 0 30px rgba(16,163,127,0.2); }
-        .voltar { display: inline-block; margin-bottom: 30px; padding: 12px 24px; background: linear-gradient(90deg, #334155, #475569); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f4f8; padding: 20px; }
+
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
+
+        /* ÁREA DO SLIDE COM MOLDURA */
+        .slide-area {
+            background: white;
+            border: 8px solid #0F2B4A;
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 450px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .slide { display: none; }
+        .slide.ativo { display: block; animation: aparece 0.4s ease; }
+
+        @keyframes aparece {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide h2 { color: #0F2B4A; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
+        .slide p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 12px; }
+
+        /* BOTÕES DE NAVEGAÇÃO DOS SLIDES */
+        .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .btn-nav {
+            background: #0F2B4A;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-nav:hover { background: #165DFF; transform: translateY(-2px); }
+        .btn-nav:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .numero { font-size: 1.1rem; font-weight: 600; color: #0F2B4A; }
+
+        /* ÁREA DOS BOTÕES DE PÁGINA */
+        .botoes-paginas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .botao-ferramentas, .botao-bonus {
+            display: block;
+            text-align: center;
+            padding: 18px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+        .botao-ferramentas {
+            background: linear-gradient(135deg, #165DFF, #0091EA);
+        }
+        .botao-bonus {
+            background: linear-gradient(135deg, #00D1B2, #00BFA5);
+        }
+        .botao-ferramentas:hover, .botao-bonus:hover { transform: translateY(-3px); }
+
+        /* RESPONSIVO */
+        @media(max-width: 600px) {
+            .botoes-paginas { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🛠️ As 5 Melhores Ferramentas de IA</h1>
-        <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 5px;">Conheça as ferramentas que vão multiplicar seus ganhos</p>
-    </header>
+<div class="container">
+    <h1>📚 Guia Completo — Mercado de Inteligência Artificial</h1>
 
-    <div class="container">
+    <!-- ÁREA DOS SLIDES COM MOLDURA -->
+    <div class="slide-area">
 
-        <a href="aulas.html" class="voltar">← Voltar para as Aulas</a>
-
-        <!-- FERRAMENTA 1: Vídeos com IA -->
-        <div class="ferramenta">
-            <img src="https://picsum.photos/id/36/900/400" alt="Criação de Vídeos com Inteligência Artificial">
-            <span class="nome-ia">🎬 Sora / Runway / Pika</span>
-            <h2>IA que Cria Vídeos</h2>
-            <p><strong>O que faz:</strong> Você escreve um texto e ela transforma em vídeo completo com imagens, cenas e narração automática. Não precisa aparecer nem filmar nada.</p>
-            <p><strong>Como ganhar dinheiro:</strong> Crie vídeos explicativos para clientes, produza conteúdo para canais do YouTube, gere material para anúncios e redes sociais. Você entrega em minutos e cobra por cada vídeo ou pacote mensal.</p>
+        <!-- SLIDE 1 -->
+        <div class="slide ativo" id="slide1">
+            <h2>📌 Aula 1 — Apresentação do Mercado</h2>
+            <p>Aqui você vai entender o tamanho do mercado de Inteligência Artificial e as oportunidades reais para começar a faturar. Não é magia, é tecnologia acessível para todos.</p>
+            <p>Você vai descobrir que não precisa saber programar. Basta saber usar as ferramentas certas da forma correta.</p>
+            <p><strong>O que vamos ver:</strong> Tamanho do mercado, áreas mais lucrativas e como começar do zero.</p>
         </div>
 
-        <!-- FERRAMENTA 2: Avatares -->
-        <div class="ferramenta">
-            <img src="https://picsum.photos/id/180/900/400" alt="Avatares Digitais e Apresentações Virtuais">
-            <span class="nome-ia">👤 Synthesia / HeyGen</span>
-            <h2>IA com Avatares Humanos</h2>
-            <p><strong>O que faz:</strong> Cria apresentações com personagens virtuais que falam com a voz que você escolher. O avatar parece uma pessoa real lendo o seu texto.</p>
-            <p><strong>Como ganhar dinheiro:</strong> Produza vídeos de aulas, apresentações comerciais e mensagens de atendimento sem precisar gravar sua voz nem aparecer na câmera. Venda vídeos personalizados para empresas e professores.</p>
+        <!-- SLIDE 2 -->
+        <div class="slide" id="slide2">
+            <h2>📌 Aula 2 — Engenharia de Prompts</h2>
+            <p>Aprenda a escrever instruções perfeitas para a IA gerar resultados profissionais. A diferença entre um resultado comum e um excelente está na forma como você pede.</p>
+            <p><strong>Técnicas avançadas:</strong> Definir o papel da IA, dar contexto, estabelecer formato e pedir revisão. Exemplo: "Atue como especialista em marketing, escreva um texto para..."</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
         </div>
 
-        <!-- FERRAMENTA 3: Imagens e Design -->
-        <div class="ferramenta">
-            <img src="https://picsum.photos/id/96/900/400" alt="Criação de Imagens e Artes com Inteligência Artificial">
-            <span class="nome-ia">🎨 Midjourney / DALL·E</span>
-            <h2>IA que Cria Imagens e Artes</h2>
-            <p><strong>O que faz:</strong> Gera imagens profissionais, ilustrações, capas e artes a partir de uma descrição que você escreve. Qualidade de mercado sem saber desenhar.</p>
-            <p><strong>Como ganhar dinheiro:</strong> Crie capas de e-books, imagens para postagens, artes de anúncios e ilustrações para sites. Venda pacotes de artes ou crie sob encomenda para clientes de qualquer nicho.</p>
+        <!-- SLIDE 3 -->
+        <div class="slide" id="slide3">
+            <h2>📌 Aula 3 — Agência de Conteúdo</h2>
+            <p>Produza dezenas de posts para clientes usando prompts encadeados. Você cria um modelo e a IA gera variações infinitas em segundos.</p>
+            <p>Defina o tom, o público-alvo, o estilo e a IA entrega pronto para publicar. É possível atender vários clientes ao mesmo tempo com qualidade.</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
         </div>
 
-        <!-- FERRAMENTA 4: Engenharia de Prompts -->
-        <div class="ferramenta">
-            <img src="https://picsum.photos/id/4/900/400" alt="Prompts e Comandos para Inteligência Artificial">
-            <span class="nome-ia">📝 ChatGPT / Claude</span>
-            <h2>IA Especialista em Prompts</h2>
-            <p><strong>O que faz:</strong> Ajuda você a criar comandos perfeitos e profissionais para extrair o melhor de qualquer inteligência artificial. Transforma ideias simples em instruções poderosas.</p>
-            <p><strong>Como ganhar dinheiro:</strong> Crie e venda pacotes de prompts prontos por nicho, preste consultoria para empresas configurando suas IAs, e ensine outras pessoas a extraírem resultados profissionais.</p>
+        <!-- SLIDE 4 -->
+        <div class="slide" id="slide4">
+            <h2>📌 Aula 4 — Consultoria Empresarial</h2>
+            <p>Identifique gargalos em empresas e implemente soluções com IA. Você cobra pelo diagnóstico e pela estratégia implementada.</p>
+            <p>Automatize atendimento, organização de documentos, análise de estoque e processos internos. O valor cobrado por esse tipo de serviço é muito alto.</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier.</p>
         </div>
 
-        <!-- FERRAMENTA 5: Textos e Documentos -->
-        <div class="ferramenta">
-            <img src="https://picsum.photos/id/42/900/400" alt="Análise e Criação de Textos e Documentos">
-            <span class="nome-ia">📄 ChatPDF / Gemini</span>
-            <h2>IA que Entende e Analisa Documentos</h2>
-            <p><strong>O que faz:</strong> Lê, resume, traduz e analisa documentos inteiros, PDFs, contratos e planilhas em segundos. Responde perguntas com base nas informações do arquivo.</p>
-            <p><strong>Como ganhar dinheiro:</strong> Ofereça serviços de resumo de documentos, análise de contratos, organização de relatórios e criação de conteúdos baseados em materiais do cliente. Economize horas de trabalho e cobre por agilidade.</p>
-        </div>
-
-        <!-- BÔNUS DO E-BOOK -->
-        <div class="ferramenta bonus">
-            <h2 style="text-align: center; font-size: 1.6rem; color: #10a37f;">🎁 BÔNUS EXCLUSIVO: E-BOOK COMPLETO</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-top: 15px;"><strong>Título:</strong> O Guia Definitivo para Ganhar Dinheiro com Inteligência Artificial</p>
-            <br>
-            <p><strong>O que você vai receber:</strong> Um e-book completo com mais de 100 páginas organizadas passo a passo, mostrando exatamente como usar cada ferramenta, quais comandos usar, quanto cobrar de cada serviço e como atrair seus primeiros clientes.</p>
-            <br>
-            <p><strong>Conteúdo do bônus:</strong> Modelos de prompts prontos para copiar e usar, tabela de valores e preços de serviços, lista com mais de 30 ferramentas complementares, e um roteiro completo de como montar sua agência de IA do zero.</p>
+        <!-- SLIDE 5 -->
+        <div class="slide" id="slide5">
+            <h2>📌 Aula 5 — Resumo e Próximos Passos</h2>
+            <p>Revisão de tudo que foi aprendido: o mercado, os prompts, a agência de conteúdo e a consultoria empresarial.</p>
+            <p>Agora é com você! Escolha uma área, pratique e comece a oferecer seus serviços. O mercado está aquecido e esperando por você.</p>
+            <p>Bons estudos e muito sucesso! 🚀</p>
         </div>
 
     </div>
+
+    <!-- BOTÕES DE NAVEGAÇÃO DOS SLIDES -->
+    <div class="navegacao">
+        <button class="btn-nav" id="btnAnterior">⬅ Anterior</button>
+        <span class="numero" id="numeroSlide">Slide 1 de 5</span>
+        <button class="btn-nav" id="btnProximo">Próximo ➡</button>
+    </div>
+
+    <!-- BOTÕES DE ACESSO ÀS OUTRAS PÁGINAS -->
+    <div class="botoes-paginas">
+        <a href="ferramentas.html" class="botao-ferramentas">🛠️ PÁGINA DE FERRAMENTAS</a>
+        <a href="bonus.html" class="botao-bonus">🎁 BÔNUS E COMPLEMENTOS</a>
+    </div>
+</div>
+
+<script>
+    let slideAtual = 1;
+    const totalSlides = 5;
+
+    function atualizarSlide() {
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('ativo'));
+        document.getElementById('slide'+slideAtual).classList.add('ativo');
+        document.getElementById('numeroSlide').textContent = `Slide ${slideAtual} de ${totalSlides}`;
+        document.getElementById('btnAnterior').disabled = slideAtual === 1;
+        document.getElementById('btnProximo').disabled = slideAtual === totalSlides;
+    }
+
+    document.getElementById('btnAnterior').addEventListener('click', () => {
+        if(slideAtual > 1) { slideAtual--; atualizarSlide(); }
+    });
+
+    document.getElementById('btnProximo').addEventListener('click', () => {
+        if(slideAtual < totalSlides) { slideAtual++; atualizarSlide(); }
+    });
+</script>
 
 </body>
 </html>
