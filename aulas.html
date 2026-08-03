@@ -3,133 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Faturar com Inteligência Artificial</title>
+    <title>Guia Completo — Mercado de Inteligência Artificial</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .slide-badge { display: inline-block; background: #38bdf8; color: #0f172a; padding: 6px 16px; border-radius: 20px; font-weight: bold; margin-bottom: 15px; }
-        .slide-screen { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 30px; border-radius: 16px; border: 2px solid #38bdf8; margin-bottom: 20px; box-shadow: 0 0 25px rgba(56,189,248,0.15); }
-        .slide-screen h3 { font-size: 1.6rem; color: #38bdf8; margin-bottom: 10px; }
-        .slide-screen p { color: #94a3b8; font-size: 1.05rem; }
-        .slide-content { background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
-        .slide-content p { margin-bottom: 12px; color: #e2e8f0; font-size: 1rem; }
-        .slide-content strong { color: #38bdf8; }
-        .slide-footer { background: linear-gradient(135deg, #10a37f15, #0d806515); padding: 20px; border-radius: 12px; border: 2px solid #10a37f; margin-bottom: 25px; }
-        .slide-footer h2 { color: #10a37f; font-size: 1.2rem; margin-bottom: 5px; }
-        .slide-footer p { color: #d1fae5; font-size: 0.95rem; }
-        .nav-buttons { display: flex; justify-content: space-between; gap: 15px; }
-        .btn-nav { flex: 1; padding: 14px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 10px; background: linear-gradient(90deg, #38bdf8, #0284c7); color: white; cursor: pointer; box-shadow: 0 4px 12px rgba(56,189,248,0.25); }
-        .btn-nav:nth-child(1) { background: linear-gradient(90deg, #475569, #334155); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f4f8; padding: 20px; }
+
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
+
+        /* ÁREA DO SLIDE COM MOLDURA */
+        .slide-area {
+            background: white;
+            border: 8px solid #0F2B4A;
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 450px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .slide { display: none; }
+        .slide.ativo { display: block; animation: aparece 0.4s ease; }
+
+        @keyframes aparece {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide h2 { color: #0F2B4A; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
+        .slide p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 12px; }
+        .slide img { width: 100%; max-height: 180px; object-fit: cover; border-radius: 12px; margin: 15px 0; background: linear-gradient(135deg, #165DFF, #00D1B2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; }
+
+        /* BOTÕES DE NAVEGAÇÃO */
+        .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .btn-nav {
+            background: #0F2B4A;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-nav:hover { background: #165DFF; transform: translateY(-2px); }
+        .btn-nav:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .numero { font-size: 1.1rem; font-weight: 600; color: #0F2B4A; }
+
+        /* BOTÃO DE BÔNUS NO FINAL */
+        .botao-bonus {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 18px;
+            background: linear-gradient(135deg, #00D1B2, #165DFF);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(22,93,255,0.3);
+            transition: 0.3s;
+        }
+        .botao-bonus:hover { transform: translateY(-3px); }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>📚 Guia Completo — Mercado de Inteligência Artificial</h1>
 
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #38bdf8; font-size: 2rem;">🚀 Como Faturar com Inteligência Artificial</h1>
-            <p style="color: #94a3b8;">5 Aulas Práticas — Do Zero ao Dinheiro</p>
+    <!-- ÁREA DOS SLIDES COM MOLDURA -->
+    <div class="slide-area">
+
+        <!-- SLIDE 1 -->
+        <div class="slide ativo" id="slide1">
+            <h2>📌 Aula 1 — Apresentação do Mercado</h2>
+            <p>Aqui você vai entender o tamanho do mercado de Inteligência Artificial e as oportunidades reais para começar a faturar. Não é magia, é tecnologia acessível para todos.</p>
+            <p>Você vai descobrir que não precisa saber programar. Basta saber usar as ferramentas certas da forma correta.</p>
+            <p><strong>O que vamos ver:</strong> Tamanho do mercado, áreas mais lucrativas e como começar do zero.</p>
         </div>
 
-        <div class="slide-screen">
-            <span class="slide-badge"></span>
-            <h3></h3>
-            <p></p>
+        <!-- SLIDE 2 -->
+        <div class="slide" id="slide2">
+            <h2>📌 Aula 2 — Engenharia de Prompts</h2>
+            <p>Aprenda a escrever instruções perfeitas para a IA gerar resultados profissionais. A diferença entre um resultado comum e um excelente está na forma como você pede.</p>
+            <p><strong>Técnicas avançadas:</strong> Definir o papel da IA, dar contexto, estabelecer formato e pedir revisão. Exemplo: "Atue como especialista em marketing, escreva um texto para..."</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
         </div>
 
-        <div class="slide-content"></div>
-
-        <div class="slide-footer">
-            <h2></h2>
-            <p></p>
+        <!-- SLIDE 3 -->
+        <div class="slide" id="slide3">
+            <h2>📌 Aula 3 — Agência de Conteúdo</h2>
+            <p>Produza dezenas de posts para clientes usando prompts encadeados. Você cria um modelo e a IA gera variações infinitas em segundos.</p>
+            <p>Defina o tom, o público-alvo, o estilo e a IA entrega pronto para publicar. É possível atender vários clientes ao mesmo tempo com qualidade.</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
         </div>
 
-        <div class="nav-buttons">
-            <button class="btn-nav">← Aula Anterior</button>
-            <button class="btn-nav">Próxima Aula →</button>
+        <!-- SLIDE 4 -->
+        <div class="slide" id="slide4">
+            <h2>📌 Aula 4 — Consultoria Empresarial</h2>
+            <p>Identifique gargalos em empresas e implemente soluções com IA. Você cobra pelo diagnóstico e pela estratégia implementada.</p>
+            <p>Automatize atendimento, organização de documentos, análise de estoque e processos internos. O valor cobrado por esse tipo de serviço é muito alto.</p>
+            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier.</p>
         </div>
 
-        <!-- BOTÃO 1: GUIA COMPLETO -->
-        <div style="text-align:center;margin-top:40px;padding:25px;background:linear-gradient(145deg,#38bdf815,#0284c715);border-radius:16px;border:2px solid #38bdf8;">
-            <h3 style="color:#38bdf8;font-size:1.3rem;margin-bottom:10px;">📘 GUIA COMPLETO DE MERCADO</h3>
-            <p style="color:#e2e8f0;margin-bottom:15px;">Precificação · Clientes · Contratos · Prompts · Crescimento</p>
-            <a href="completo.html" style="display:inline-block;padding:14px 32px;background:linear-gradient(90deg,#38bdf8,#0284c7);color:white;font-weight:bold;font-size:1.1rem;text-decoration:none;border-radius:10px;">Acessar Guia Completo →</a>
-        </div>
-
-        <!-- BOTÃO 2: BÔNUS FERRAMENTAS -->
-        <div style="text-align:center;margin-top:25px;padding:25px;background:linear-gradient(145deg,#10a37f15,#0d806515);border-radius:16px;border:2px solid #10a37f;">
-            <h3 style="color:#10a37f;font-size:1.3rem;margin-bottom:10px;">🎁 BÔNUS EXCLUSIVO</h3>
-            <p style="color:#e2e8f0;margin-bottom:15px;">Conheça as 5 ferramentas que vão multiplicar seus ganhos!</p>
-            <a href="ferramentas.html" style="display:inline-block;padding:14px 32px;background:linear-gradient(90deg,#10a37f,#0d8065);color:white;font-weight:bold;text-decoration:none;border-radius:10px;">Ver Ferramentas →</a>
+        <!-- SLIDE 5 -->
+        <div class="slide" id="slide5">
+            <h2>📌 Aula 5 — Resumo e Próximos Passos</h2>
+            <p>Revisão de tudo que foi aprendido: o mercado, os prompts, a agência de conteúdo e a consultoria empresarial.</p>
+            <p>Agora é com você! Escolha uma área, pratique e comece a oferecer seus serviços. O mercado está aquecido e esperando por você.</p>
+            <p>Bons estudos e muito sucesso! 🚀</p>
         </div>
 
     </div>
 
-    <script>
-        const slides = [
-            {
-                badge: "Slide 01",
-                titleHeader: "Como Fazer Dinheiro com o ChatGPT",
-                descHeader: "Guia prático para faturar com inteligência artificial.",
-                content: '<p><strong>1. Copywriting para Vendas:</strong> Use prompts para criar cartas de vendas, e-mails e anúncios que prendem a atenção e convertem clientes.</p><p><strong>2. Serviços de Freelancer:</strong> Ofereça tradução, artigos otimizados para Google e roteiros prontos para vídeos, entregando em minutos.</p><p><strong>3. Criação de Infoprodutos:</strong> Monte e-books, apostilas e cursos completos com a ajuda da IA, reduzindo o trabalho de meses para dias.</p>',
-                titleFooter: "Slide 1: O Poder do ChatGPT",
-                descFooter: "Descubra as 3 formas mais rápidas de começar a ganhar dinheiro usando inteligência artificial hoje mesmo."
-            },
-            {
-                badge: "Slide 02",
-                titleHeader: "Estratégias Avançadas — Passo a Passo Completo",
-                descHeader: "Saiba EXATAMENTE como aplicar e cobrar por seus serviços.",
-                content: '<p><strong>1. AGÊNCIA DE CONTEÚDO — Como funciona:</strong> Você cria UM prompt modelo pedindo: "Escreva 5 posts sobre [tema], com tom amigável, chamada para ação e hashtags". Depois manda: "Agora reescreva cada um de 3 formas diferentes". Com UMA mensagem, gera 15 conteúdos. É só entregar e cobrar do cliente.</p><p><strong>2. ENGENHARIA DE PROMPT — As 3 técnicas:</strong> • <strong>Few-Shot:</strong> Dê EXEMPLOS prontos antes de pedir: "Faça igual a este texto modelo...". • <strong>Chain-of-Thought:</strong> Mande: "Pense passo a passo antes de responder, mostre como chegou ao resultado". • <strong>Delimitação:</strong> Use colchetes para separar o texto: "Analise o texto a seguir: [conteúdo aqui]".</p><p><strong>3. CONSULTORIA EMPRESARIAL — Como aplicar e cobrar:</strong> Visite a empresa e veja onde perdem tempo: atendimento, e-mails, orçamentos. Crie um prompt padrão: "Você é o atendente da empresa X, responda com base nestas regras...". Coloque no WhatsApp ou e-mail. A IA responde sozinha. Você cobra R$ 500 a R$ 2.000 de instalação + R$ 100 a R$ 300 por mês de manutenção.</p>',
-                titleFooter: "Slide 2: Monetização em Grande Escala",
-                descFooter: "De simples freelancer a consultor de alto valor: aprenda a estruturar negócios usando IA."
-            },
-            {
-                badge: "Slide 03",
-                titleHeader: "Automação Completa e Escala de Ganhos",
-                descHeader: "Leve seus resultados ao próximo nível com sistemas automáticos.",
-                content: '<p><strong>1. ASSISTENTE VIRTUAL PERSONALIZADO:</strong> Você treina a IA com seus próprios dados: "A partir de agora você é meu assistente. Responda sempre com base nestas regras...". A IA passa a agir como se fosse você, atendendo clientes e respondendo dúvidas sozinha.</p><p><strong>2. VENDA DE PACOTES DE PROMPTS:</strong> Crie, teste e organize os melhores comandos separados por nicho — vendas, marketing, atendimento. Cria UMA vez e vende infinitamente. Sem estoque, sem frete, sem custo extra.</p><p><strong>3. CONTEÚDO EM MASSA E AFILIADOS:</strong> Use a IA para gerar dezenas de artigos e vídeos com dicas sobre produtos que você indica. Quanto mais conteúdo útil, mais pessoas te encontram e compram pelo seu link.</p><p><strong>4. QUANTO COBRAR:</strong> Agência de conteúdo: R$ 300 a R$ 1.500 por cliente/mês. Consultoria de automação: R$ 1.000 a R$ 5.000 por projeto. Pacote de prompts: R$ 47 a R$ 197. O valor está na transformação que você entrega, não no tempo que gastou.</p>',
-                titleFooter: "Slide 3: Automação e Escala",
-                descFooter: "Trabalhe de forma inteligente: a IA executa, você lidera e lucra em escala."
-            },
-            {
-                badge: "Slide 04",
-                titleHeader: "Como Montar e Vender Cursos com IA",
-                descHeader: "Crie materiais de alto valor sem ser especialista no assunto.",
-                content: '<p><strong>1. ESTRUTURAÇÃO DO CURSO DO ZERO:</strong> Peça para a IA: "Crie um sumário completo de um curso sobre [tema], dividido em 5 módulos com 4 aulas cada". Ela monta toda a estrutura lógica. Depois você pede: "Agora desenvolva o conteúdo da aula 1 com exemplos práticos e linguagem simples". Em poucas horas você tem um curso inteiro pronto.</p><p><strong>2. MATERIAIS COMPLEMENTARES:</strong> Além das aulas, peça para gerar exercícios, gabaritos, apostilas resumidas e materiais de apoio. A IA cria tudo formatado e pronto para entregar. Você só revisa e dá o seu toque final.</p><p><strong>3. COMO LANÇAR E VENDER:</strong> Use a IA também para criar a página de vendas, os e-mails de sequência e as postagens de divulgação. Com o curso pronto + material de divulgação pronto, você lança e começa a vender. É produto que cria uma vez e vende para sempre.</p>',
-                titleFooter: "Slide 4: Criação e Venda de Cursos",
-                descFooter: "Transforme conhecimento em produto digital: a IA estrutura, você empacota e lucra."
-            },
-            {
-                badge: "Slide 05",
-                titleHeader: "Resumo e Próximos Passos",
-                descHeader: "O que fazer AGORA para começar a ganhar dinheiro com IA.",
-                content: '<p><strong>1. ESCOLHA UMA ESTRATÉGIA:</strong> Não tente fazer tudo ao mesmo tempo. Comece por uma: prestação de serviço, agência de conteúdo, venda de prompts ou criação de cursos. Domine uma primeiro, depois expande.</p><p><strong>2. PRATIQUE TODOS OS DIAS:</strong> Quanto mais você usa a IA, melhores prompts você cria. Comece pedindo textos simples, depois avance para respostas mais complexas. Em 15 dias você já vai estar muito melhor do que hoje.</p><p><strong>3. COMECE A COBRAR PELOS SEUS SERVIÇOS:</strong> Não trabalhe de graça. A IA te dá velocidade, mas o valor está na sua estratégia e no resultado que você entrega. Cobrar barato é erro — cobre pelo resultado, não pelo tempo.</p><p><strong>4. ESCALA É A CHAVE:</strong> Quando você dominar o processo, a IA vai trabalhar enquanto você dorme. O limite dos seus ganhos deixa de ser o tempo que você tem e passa a ser a sua capacidade de organizar e vender.</p>',
-                titleFooter: "Slide 5: Chegou a Sua Vez",
-                descFooter: "A IA é a ferramenta, VOCÊ é o empreendedor. Coloque em prática e transforme conhecimento em dinheiro!"
-            }
-        ];
-
-        let currentSlide = 0;
-        function updateSlide() {
-            const s = slides[currentSlide];
-            document.querySelector('.slide-badge').innerText = s.badge;
-            document.querySelector('.slide-screen h3').innerText = s.titleHeader;
-            document.querySelector('.slide-screen p').innerText = s.descHeader;
-            document.querySelector('.slide-content').innerHTML = s.content;
-            document.querySelector('.slide-footer h2').innerText = s.titleFooter;
-            document.querySelector('.slide-footer p').innerText = s.descFooter;
-        }
-
-        document.querySelectorAll('.btn-nav')[0].addEventListener('click', () => {
-            if (currentSlide > 0) { currentSlide--; updateSlide(); }
-        });
-
-        document.querySelectorAll('.btn-nav')[1].addEventListener('click', () => {
-            if (currentSlide < slides.length - 1) { currentSlide++; updateSlide(); }
-        });
-
-        updateSlide();
-    </script>
-</body>
-</html>
+    <!-- 3 BOTÕES DE NAVEGAÇÃO -->
+    <div class="navegacao">
+        <button class="btn-nav" id="btnAnterior">⬅ Anterior</button>
+        <span class="numero" id="numeroSlide">Sl...
