@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Completo — Mercado de Inteligência Artificial</title>
+    <title>Ferramentas Recomendadas</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background: #f0f4f8; padding: 20px; }
@@ -11,163 +11,99 @@
         .container { max-width: 900px; margin: 0 auto; }
         h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
 
-        /* ÁREA DO SLIDE COM MOLDURA */
-        .slide-area {
+        /* MESMA MOLDURA DA PÁGINA DE AULAS */
+        .caixa {
             background: white;
             border: 8px solid #0F2B4A;
             border-radius: 20px;
             padding: 30px;
-            min-height: 450px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            position: relative;
             margin-bottom: 25px;
         }
 
-        .slide { display: none; }
-        .slide.ativo { display: block; animation: aparece 0.4s ease; }
+        .caixa h2 { color: #0F2B4A; font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
+        .caixa p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 15px; }
 
-        @keyframes aparece {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
+        .ferramenta {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
         }
-
-        .slide h2 { color: #0F2B4A; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
-        .slide p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 12px; }
-
-        /* BOTÕES DE NAVEGAÇÃO DOS SLIDES */
-        .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-        .btn-nav {
-            background: #0F2B4A;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
+        .ferramenta strong { color: #0F2B4A; font-size: 1.05rem; }
+        .link-acessar {
+            display: inline-block;
+            background: #165DFF;
+            color: white !important;
+            padding: 6px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            cursor: pointer;
+            margin-left: 12px;
             transition: 0.3s;
         }
-        .btn-nav:hover { background: #165DFF; transform: translateY(-2px); }
-        .btn-nav:disabled { background: #ccc; cursor: not-allowed; transform: none; }
-        .numero { font-size: 1.1rem; font-weight: 600; color: #0F2B4A; }
-
-        /* ÁREA DOS BOTÕES DE PÁGINA */
-        .botoes-paginas {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 40px;
+        .link-acessar:hover {
+            background: #0D47E0;
+            transform: translateY(-1px);
         }
-        .botao-ferramentas, .botao-bonus {
+        .ferramenta p { margin: 8px 0 0 0; color: #64748B; font-size: 0.95rem; }
+
+        .botao-voltar {
             display: block;
             text-align: center;
-            padding: 18px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #0F2B4A;
             color: white;
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 600;
             border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             transition: 0.3s;
         }
-        .botao-ferramentas {
-            background: linear-gradient(135deg, #165DFF, #0091EA);
-        }
-        .botao-bonus {
-            background: linear-gradient(135deg, #00D1B2, #00BFA5);
-        }
-        .botao-ferramentas:hover, .botao-bonus:hover { transform: translateY(-3px); }
-
-        /* RESPONSIVO */
-        @media(max-width: 600px) {
-            .botoes-paginas { grid-template-columns: 1fr; }
-        }
+        .botao-voltar:hover { background: #165DFF; transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>📚 Guia Completo — Mercado de Inteligência Artificial</h1>
+    <h1>🛠️ FERRAMENTAS RECOMENDADAS</h1>
 
-    <!-- ÁREA DOS SLIDES COM MOLDURA -->
-    <div class="slide-area">
-
-        <!-- SLIDE 1 -->
-        <div class="slide ativo" id="slide1">
-            <h2>📌 Aula 1 — Apresentação do Mercado</h2>
-            <p>Aqui você vai entender o tamanho do mercado de Inteligência Artificial e as oportunidades reais para começar a faturar. Não é magia, é tecnologia acessível para todos.</p>
-            <p>Você vai descobrir que não precisa saber programar. Basta saber usar as ferramentas certas da forma correta.</p>
-            <p><strong>O que vamos ver:</strong> Tamanho do mercado, áreas mais lucrativas e como começar do zero.</p>
+    <div class="caixa">
+        <h2>Inteligências Artificiais</h2>
+        
+        <div class="ferramenta">
+            <strong>🤖 ChatGPT</strong>
+            <a href="https://chatgpt.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA mais completa para criação de textos, prompts e estratégias.</p>
         </div>
 
-        <!-- SLIDE 2 -->
-        <div class="slide" id="slide2">
-            <h2>📌 Aula 2 — Engenharia de Prompts</h2>
-            <p>Aprenda a escrever instruções perfeitas para a IA gerar resultados profissionais. A diferença entre um resultado comum e um excelente está na forma como você pede.</p>
-            <p><strong>Técnicas avançadas:</strong> Definir o papel da IA, dar contexto, estabelecer formato e pedir revisão. Exemplo: "Atue como especialista em marketing, escreva um texto para..."</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
+        <div class="ferramenta">
+            <strong>🔮 Gemini</strong>
+            <a href="https://gemini.google.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA do Google, excelente para análise e respostas rápidas.</p>
         </div>
 
-        <!-- SLIDE 3 -->
-        <div class="slide" id="slide3">
-            <h2>📌 Aula 3 — Agência de Conteúdo</h2>
-            <p>Produza dezenas de posts para clientes usando prompts encadeados. Você cria um modelo e a IA gera variações infinitas em segundos.</p>
-            <p>Defina o tom, o público-alvo, o estilo e a IA entrega pronto para publicar. É possível atender vários clientes ao mesmo tempo com qualidade.</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
+        <div class="ferramenta">
+            <strong>📝 Claude</strong>
+            <a href="https://claude.ai" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA especialista em textos longos e documentos.</p>
         </div>
 
-        <!-- SLIDE 4 -->
-        <div class="slide" id="slide4">
-            <h2>📌 Aula 4 — Consultoria Empresarial</h2>
-            <p>Identifique gargalos em empresas e implemente soluções com IA. Você cobra pelo diagnóstico e pela estratégia implementada.</p>
-            <p>Automatize atendimento, organização de documentos, análise de estoque e processos internos. O valor cobrado por esse tipo de serviço é muito alto.</p>
-            <p><strong>Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier.</p>
+        <div class="ferramenta">
+            <strong>🔍 Perplexity</strong>
+            <a href="https://perplexity.ai" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA com busca em tempo real, ótima para pesquisa.</p>
         </div>
 
-        <!-- SLIDE 5 -->
-        <div class="slide" id="slide5">
-            <h2>📌 Aula 5 — Resumo e Próximos Passos</h2>
-            <p>Revisão de tudo que foi aprendido: o mercado, os prompts, a agência de conteúdo e a consultoria empresarial.</p>
-            <p>Agora é com você! Escolha uma área, pratique e comece a oferecer seus serviços. O mercado está aquecido e esperando por você.</p>
-            <p>Bons estudos e muito sucesso! 🚀</p>
+        <div class="ferramenta">
+            <strong>✨ Poe</strong>
+            <a href="https://poe.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>Reúne várias IAs em um só lugar.</p>
         </div>
-
     </div>
 
-    <!-- BOTÕES DE NAVEGAÇÃO DOS SLIDES -->
-    <div class="navegacao">
-        <button class="btn-nav" id="btnAnterior">⬅ Anterior</button>
-        <span class="numero" id="numeroSlide">Slide 1 de 5</span>
-        <button class="btn-nav" id="btnProximo">Próximo ➡</button>
-    </div>
-
-    <!-- BOTÕES DE ACESSO ÀS OUTRAS PÁGINAS -->
-    <div class="botoes-paginas">
-        <a href="ferramentas.html" class="botao-ferramentas">🛠️ PÁGINA DE FERRAMENTAS</a>
-        <a href="bonus.html" class="botao-bonus">🎁 BÔNUS E COMPLEMENTOS</a>
-    </div>
+    <a href="aulas.html" class="botao-voltar">⬅ Voltar para as Aulas</a>
 </div>
-
-<script>
-    let slideAtual = 1;
-    const totalSlides = 5;
-
-    function atualizarSlide() {
-        document.querySelectorAll('.slide').forEach(s => s.classList.remove('ativo'));
-        document.getElementById('slide'+slideAtual).classList.add('ativo');
-        document.getElementById('numeroSlide').textContent = `Slide ${slideAtual} de ${totalSlides}`;
-        document.getElementById('btnAnterior').disabled = slideAtual === 1;
-        document.getElementById('btnProximo').disabled = slideAtual === totalSlides;
-    }
-
-    document.getElementById('btnAnterior').addEventListener('click', () => {
-        if(slideAtual > 1) { slideAtual--; atualizarSlide(); }
-    });
-
-    document.getElementById('btnProximo').addEventListener('click', () => {
-        if(slideAtual < totalSlides) { slideAtual++; atualizarSlide(); }
-    });
-</script>
 
 </body>
 </html>
