@@ -3,107 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferramentas Recomendadas</title>
+    <title>Ferramentas de IA — Guia Completo</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #f0f4f8; padding: 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        .container { max-width: 900px; margin: 0 auto; }
-        h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
-
-        /* MESMA MOLDURA DA PÁGINA DE AULAS */
-        .caixa {
-            background: white;
-            border: 8px solid #0F2B4A;
-            border-radius: 20px;
+        body {
+            background: #f0f4f8;
             padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .voltar-btn {
+            display: block;
+            background: linear-gradient(45deg, #4a6cf7, #2c52ed);
+            color: #fff;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.05em;
+        }
+
+        .cabecalho {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .linha {
+            height: 3px;
+            background: linear-gradient(90deg, #4a6cf7, #2c52ed);
+            border-radius: 3px;
             margin-bottom: 25px;
         }
 
-        .caixa h2 { color: #0F2B4A; font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
-        .caixa p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 15px; }
+        .moldura {
+            background: #ffffff;
+            border: 2px solid #4a6cf7;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(74, 108, 247, 0.12);
+        }
 
         .ferramenta {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #cce;
         }
-        .ferramenta strong { color: #0F2B4A; font-size: 1.05rem; }
-        .link-acessar {
-            display: inline-block;
-            background: #165DFF;
-            color: white !important;
-            padding: 6px 16px;
+
+        .ferramenta:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .logo-ferramenta {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #4a6cf7;
+            background: #f8f9fa;
+        }
+
+        .logo-ferramenta img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .linha-nome {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .nome {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .botao-acessar {
+            background: linear-gradient(45deg, #4a6cf7, #2c52ed);
+            color: #fff;
+            padding: 6px 18px;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
             font-weight: 600;
-            margin-left: 12px;
-            transition: 0.3s;
+            font-size: 0.95em;
         }
-        .link-acessar:hover {
-            background: #0D47E0;
-            transform: translateY(-1px);
-        }
-        .ferramenta p { margin: 8px 0 0 0; color: #64748B; font-size: 0.95rem; }
 
-        .botao-voltar {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: #0F2B4A;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: 0.3s;
+        .descricao {
+            color: #34495e;
+            margin-bottom: 12px;
+            text-align: justify;
         }
-        .botao-voltar:hover { background: #165DFF; transform: translateY(-2px); }
+
+        .ganhar-dinheiro {
+            background: #e8f8f0;
+            border-left: 4px solid #27ae60;
+            padding: 12px 16px;
+            border-radius: 6px;
+            color: #1e4d35;
+            font-size: 0.98em;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>🛠️ FERRAMENTAS RECOMENDADAS</h1>
+    <div class="container">
 
-    <div class="caixa">
-        <h2>Inteligências Artificiais</h2>
-        
-        <div class="ferramenta">
-            <strong>🤖 ChatGPT</strong>
-            <a href="https://chatgpt.com" target="_blank" class="link-acessar">Acessar →</a>
-            <p>IA mais completa para criação de textos, prompts e estratégias.</p>
+        <div class="cabecalho">🛠️ FERRAMENTAS DE INTELIGÊNCIA ARTIFICIAL</div>
+        <div class="linha"></div>
+        <div class="moldura">
+
+            <!-- CHATGPT -->
+            <div class="ferramenta">
+                <div class="logo-ferramenta">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png" alt="Logo ChatGPT">
+                </div>
+                <div class="linha-nome">
+                    <div class="nome">🤖 ChatGPT</div>
+                    <a href="https://chat.openai.com" target="_blank" class="botao-acessar">Acessar →</a>
+                </div>
+                <p class="descricao">
+                    O ChatGPT é a ferramenta mais completa e acessível para criação de textos, respostas, ideias e estratégias. Desenvolvido pela OpenAI, ele compreende, cria, revisa e aprimora qualquer conteúdo com qualidade profissional. Você pode pedir artigos, roteiros, e-mails, contratos, legendas, textos de vendas, ideias de negócios, explicações detalhadas e muito mais. Funciona como um assistente pessoal que domina perfeitamente a língua portuguesa e está disponível 24 horas por dia, pronto para ajudar em qualquer tarefa que envolva palavras e raciocínio.
+                </p>
+                <p class="ganhar-dinheiro">
+                    💰 <strong>Como ganhar dinheiro:</strong> Use para criar conteúdo para redes sociais e cobrar por postagens; escrever artigos e textos para sites e blogs; desenvolver roteiros de vídeos para canais; criar e-books e materiais digitais para venda; elaborar propostas comerciais e textos de vendas para clientes; prestar serviços de redação e revisão. Quanto mais conteúdo você produz, mais serviços consegue oferecer — e a IA faz o trabalho pesado em segundos, permitindo que você atenda muitos clientes ao mesmo tempo.
+                </p>
+            </div>
+
+            <!-- GEMINI -->
+            <div class="ferramenta">
+                <div class="logo-ferramenta">
+                    <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v001.svg" alt="Logo Gemini">
+                </div>
+                <div class="linha-nome">
+                    <div class="nome">✨ Gemini</div>
+                    <a href="https://gemini.google.com" target="_blank" class="botao-acessar">Acessar →</a>
+                </div>
+                <p class="descricao">
+                    O Gemini é a Inteligência Artificial do Google e se destaca por entender imagens, áudios e vídeos além de textos. Isso significa que você pode enviar uma foto, um gráfico, um documento escaneado, uma gravação de voz e ele lê, interpreta e responde com base naquilo. É extremamente útil para analisar imagens e extrair informações, transcrever áudios com precisão, explicar gráficos e tabelas, resolver problemas que envolvem desenhos ou fotos e até transformar ideias faladas em textos estruturados.
+                </p>
+                <p class="ganhar-dinheiro">
+                    💰 <strong>Como ganhar dinheiro:</strong> Ofereça serviços de transcrição de áudios e vídeos; analise documentos e imagens para clientes; transforme gravações em roteiros e textos; crie legendas automáticas para vídeos; faça resumos de reuniões e gravações; analise fotos de produtos e crie descrições automáticas para lojas. A capacidade de trabalhar com fotos e áudio abre um leque de serviços que outras IAs não conseguem fazer.
+                </p>
+            </div>
+
+            <!-- CLAUDE -->
+            <div class="ferramenta">
+                <div class="logo-ferramenta">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Anthropic_Logo.svg/512px-Anthropic_Logo.svg.png" alt="Logo Claude">
+                </div>
+                <div class="linha-nome">
+                    <div class="nome">🧠 Claude</div>
+                    <a href="https://claude.ai" target="_blank" class="botao-acessar">Acessar →</a>
+                </div>
+                <p class="descricao">
+                    O Claude é considerado a melhor IA para trabalhar com documentos longos e muitos arquivos de uma só vez. Você pode enviar contratos, livros, artigos, planilhas e vários documentos juntos e ele lê tudo com atenção, resumindo, comparando e respondendo perguntas com base no conteúdo. É perfeito para análise de materiais grandes, resumos detalhados, comparação de textos, extração de informações de arquivos e trabalho com documentos que exigem atenção aos detalhes.
+                </p>
+                <p class="ganhar-dinheiro">
+                    💰 <strong>Como ganhar dinheiro:</strong> Ofereça serviços de resumo e análise de contratos e documentos; leia e resuma materiais grandes para profissionais ocupados; compare versões de textos e identifique diferenças; extraia informações de arquivos e organize em tabelas; faça pesquisas detalhadas usando vários materiais de uma vez. É a ferramenta ideal para trabalhos que exigem leitura e análise profunda, permitindo cobrar mais por esse tipo de serviço especializado.
+                </p>
+            </div>
+
+            <!-- PERPLEXITY -->
+            <div class="ferramenta">
+                <div class="logo-ferramenta">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Perplexity_Logo.svg/512px-Perplexity_Logo.svg.png" alt="Logo Perplexity">
+                </div>
+                <div class="linha-nome">
+                    <div class="nome">🔍 Perplexity</div>
+                    <a href="https://www.perplexity.ai" target="_blank" class="botao-acessar">Acessar →</a>
+                </div>
+                <p class="descricao">
+                    O Perplexity é uma IA com busca em tempo real, ou seja, ela pesquisa na internet e traz informações atualizadas com fontes confiáveis. Diferente de outras IAs que só sabem o que aprenderam até uma data, o Perplexity busca dados recentes, notícias, estudos, estatísticas e dados do momento. É excelente para pesquisas, trabalhos que precisam de informação atualizada, respostas com referências e fatos comprovados.
+                </p>
+                <p class="ganhar-dinheiro">
+                    💰 <strong>Como ganhar dinheiro:</strong> Crie conteúdo sempre atualizado e com dados comprovados; faça pesquisas de mercado e concorrência para clientes; escreva artigos com estatísticas e informações recentes; crie relatórios e análises com dados reais do momento; responda dúvidas com embasamento e fontes confiáveis. A informação atualizada vale ouro e permite que você entregue um trabalho muito mais completo e confiável.
+                </p>
+            </div>
+
+            <!-- POE -->
+            <div class="ferramenta">
+                <div class="logo-ferramenta">
+                    <img src="https://assets-global.website-files.com/6558b1f2b7e0f035b45b7959/655b4b8e714450400165f395_favicon.png" alt="Logo Poe">
+                </div>
+                <div class="linha-nome">
+                    <div class="nome">⭐ Poe</div>
+                    <a href="https://poe.com" target="_blank" class="botao-acessar">Acessar →</a>
+                </div>
+                <p class="descricao">
+                    O Poe reúne várias Inteligências Artificiais em um só lugar. Com uma única conta, você pode usar ChatGPT, Gemini, Claude e outras IAs sem precisar entrar em vários sites separados. É como ter todas as ferramentas na mesma página. Você pode comparar respostas, usar a especialidade de cada uma sem perder tempo trocando de site e ainda criar seus próprios assistentes personalizados para tarefas específicas.
+                </p>
+                <p class="ganhar-dinheiro">
+                    💰 <strong>Como ganhar dinheiro:</strong> Compare respostas e escolha a melhor versão para entregar ao cliente; use a IA certa para cada tarefa sem perder tempo; crie assistentes especializados para atender clientes de nichos específicos; economize tempo tendo tudo num só lugar; produza mais em menos tempo aproveitando o melhor de cada IA reunida. É organização e produtividade reunidas para você atender mais e melhor.
+                </p>
+            </div>
+
         </div>
 
-        <div class="ferramenta">
-            <strong>🔮 Gemini</strong>
-            <a href="https://gemini.google.com" target="_blank" class="link-acessar">Acessar →</a>
-            <p>IA do Google, excelente para análise e respostas rápidas.</p>
-        </div>
+        <a href="javascript:history.back()" class="voltar-btn">← Voltar para as Aulas</a>
 
-        <div class="ferramenta">
-            <strong>📝 Claude</strong>
-            <a href="https://claude.ai" target="_blank" class="link-acessar">Acessar →</a>
-            <p>IA especialista em textos longos e documentos.</p>
-        </div>
-
-        <div class="ferramenta">
-            <strong>🔍 Perplexity</strong>
-            <a href="https://perplexity.ai" target="_blank" class="link-acessar">Acessar →</a>
-            <p>IA com busca em tempo real, ótima para pesquisa.</p>
-        </div>
-
-        <div class="ferramenta">
-            <strong>✨ Poe</strong>
-            <a href="https://poe.com" target="_blank" class="link-acessar">Acessar →</a>
-            <p>Reúne várias IAs em um só lugar.</p>
-        </div>
     </div>
-
-    <a href="aulas.html" class="botao-voltar">⬅ Voltar para as Aulas</a>
-</div>
 
 </body>
 </html>
