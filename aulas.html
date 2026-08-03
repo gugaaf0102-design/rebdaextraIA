@@ -33,9 +33,8 @@
 
         .slide h2 { color: #0F2B4A; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
         .slide p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 12px; }
-        .slide img { width: 100%; max-height: 180px; object-fit: cover; border-radius: 12px; margin: 15px 0; background: linear-gradient(135deg, #165DFF, #00D1B2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; }
 
-        /* BOTÕES DE NAVEGAÇÃO */
+        /* BOTÕES DE NAVEGAÇÃO DOS SLIDES */
         .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
         .btn-nav {
             background: #0F2B4A;
@@ -52,22 +51,37 @@
         .btn-nav:disabled { background: #ccc; cursor: not-allowed; transform: none; }
         .numero { font-size: 1.1rem; font-weight: 600; color: #0F2B4A; }
 
-        /* BOTÃO DE BÔNUS NO FINAL */
-        .botao-bonus {
+        /* ÁREA DOS BOTÕES DE PÁGINA */
+        .botoes-paginas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .botao-ferramentas, .botao-bonus {
             display: block;
             text-align: center;
-            margin-top: 40px;
             padding: 18px;
-            background: linear-gradient(135deg, #00D1B2, #165DFF);
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(22,93,255,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             transition: 0.3s;
         }
-        .botao-bonus:hover { transform: translateY(-3px); }
+        .botao-ferramentas {
+            background: linear-gradient(135deg, #165DFF, #0091EA);
+        }
+        .botao-bonus {
+            background: linear-gradient(135deg, #00D1B2, #00BFA5);
+        }
+        .botao-ferramentas:hover, .botao-bonus:hover { transform: translateY(-3px); }
+
+        /* RESPONSIVO */
+        @media(max-width: 600px) {
+            .botoes-paginas { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -120,7 +134,40 @@
 
     </div>
 
-    <!-- 3 BOTÕES DE NAVEGAÇÃO -->
+    <!-- BOTÕES DE NAVEGAÇÃO DOS SLIDES -->
     <div class="navegacao">
         <button class="btn-nav" id="btnAnterior">⬅ Anterior</button>
-        <span class="numero" id="numeroSlide">Sl...
+        <span class="numero" id="numeroSlide">Slide 1 de 5</span>
+        <button class="btn-nav" id="btnProximo">Próximo ➡</button>
+    </div>
+
+    <!-- BOTÕES DE ACESSO ÀS OUTRAS PÁGINAS -->
+    <div class="botoes-paginas">
+        <a href="ferramentas.html" class="botao-ferramentas">🛠️ PÁGINA DE FERRAMENTAS</a>
+        <a href="bonus.html" class="botao-bonus">🎁 BÔNUS E COMPLEMENTOS</a>
+    </div>
+</div>
+
+<script>
+    let slideAtual = 1;
+    const totalSlides = 5;
+
+    function atualizarSlide() {
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('ativo'));
+        document.getElementById('slide'+slideAtual).classList.add('ativo');
+        document.getElementById('numeroSlide').textContent = `Slide ${slideAtual} de ${totalSlides}`;
+        document.getElementById('btnAnterior').disabled = slideAtual === 1;
+        document.getElementById('btnProximo').disabled = slideAtual === totalSlides;
+    }
+
+    document.getElementById('btnAnterior').addEventListener('click', () => {
+        if(slideAtual > 1) { slideAtual--; atualizarSlide(); }
+    });
+
+    document.getElementById('btnProximo').addEventListener('click', () => {
+        if(slideAtual < totalSlides) { slideAtual++; atualizarSlide(); }
+    });
+</script>
+
+</body>
+</html>
