@@ -3,147 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Completo — Como Faturar e Crescer com IA</title>
+    <title>Ferramentas Recomendadas</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; line-height: 1.7; }
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 30px 20px; text-align: center; border-bottom: 2px solid #334155; }
-        h1 { font-size: 2rem; color: #38bdf8; }
-        .container { max-width: 950px; margin: 0 auto; padding: 40px 20px; }
-        .secao { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 25px; border-radius: 16px; border: 2px solid #38bdf8; margin-bottom: 25px; box-shadow: 0 0 20px rgba(56,189,248,0.1); }
-        .secao h2 { color: #10a37f; font-size: 1.4rem; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #334155; }
-        .secao p { color: #e2e8f0; margin-bottom: 10px; font-size: 1rem; }
-        .secao strong { color: #38bdf8; }
-        .destaque { background: rgba(16,163,127,0.08); border-left: 4px solid #10a37f; padding: 15px; border-radius: 0 10px 10px 0; margin: 15px 0; }
-        .tabela { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        .tabela th, .tabela td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #334155; }
-        .tabela th { background: #10a37f; color: white; }
-        .tabela tr:hover { background: rgba(56,189,248,0.05); }
-        .voltar { display: inline-block; margin-bottom: 30px; padding: 12px 24px; background: linear-gradient(90deg, #334155, #475569); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
-        .aviso { background: rgba(239,68,68,0.08); border: 2px solid #ef4444; border-radius: 10px; padding: 15px; margin-top: 10px; }
-        .aviso h3 { color: #ef4444; font-size: 1.1rem; margin-bottom: 8px; }
-        .dica { background: rgba(56,189,248,0.08); border: 2px solid #38bdf8; border-radius: 10px; padding: 15px; margin-top: 10px; }
-        .dica h3 { color: #38bdf8; font-size: 1.1rem; margin-bottom: 8px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f4f8; padding: 20px; }
+
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
+
+        /* MESMA MOLDURA DA PÁGINA DE AULAS */
+        .caixa {
+            background: white;
+            border: 8px solid #0F2B4A;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+
+        .caixa h2 { color: #0F2B4A; font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
+        .caixa p { color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 15px; }
+
+        .ferramenta {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .ferramenta strong { color: #0F2B4A; font-size: 1.05rem; }
+        .link-acessar {
+            display: inline-block;
+            background: #165DFF;
+            color: white !important;
+            padding: 6px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 12px;
+            transition: 0.3s;
+        }
+        .link-acessar:hover {
+            background: #0D47E0;
+            transform: translateY(-1px);
+        }
+        .ferramenta p { margin: 8px 0 0 0; color: #64748B; font-size: 0.95rem; }
+
+        .botao-voltar {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #0F2B4A;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .botao-voltar:hover { background: #165DFF; transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>📘 GUIA COMPLETO DE MERCADO</h1>
-        <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 5px;">Precificação · Clientes · Contratos · Ética · Crescimento</p>
-    </header>
+<div class="container">
+    <h1>🛠️ FERRAMENTAS RECOMENDADAS</h1>
 
-    <div class="container">
-
-        <a href="aulas.html" class="voltar">← Voltar para as Aulas</a>
-
-        <!-- SEÇÃO 1: PREÇOS -->
-        <div class="secao">
-            <h2>💰 QUANTO COBRAR — Tabela de Valores do Mercado</h2>
-            <p>Deixe de trabalhar de graça! Veja os valores praticados no mercado brasileiro e cobre pelo RESULTADO, não pelo tempo.</p>
-            
-            <table class="tabela">
-                <tr><th>Serviço</th><th>Valor Mínimo</th><th>Valor Ideal</th><th>Valor Premium</th></tr>
-                <tr><td>Artigo / Post para Redes Sociais</td><td>R$ 50</td><td>R$ 120</td><td>R$ 250</td></tr>
-                <tr><td>Pacote Mensal de Conteúdo</td><td>R$ 300</td><td>R$ 800</td><td>R$ 1.500</td></tr>
-                <tr><td>Carta de Vendas / E-mail Marketing</td><td>R$ 150</td><td>R$ 350</td><td>R$ 800</td></tr>
-                <tr><td>Configuração de IA para Empresa</td><td>R$ 800</td><td>R$ 1.500</td><td>R$ 3.000</td></tr>
-                <tr><td>Consultoria e Treinamento</td><td>R$ 1.000</td><td>R$ 2.500</td><td>R$ 5.000</td></tr>
-                <tr><td>Manutenção Mensal</td><td>R$ 100</td><td>R$ 200</td><td>R$ 400</td></tr>
-            </table>
-
-            <div class="destaque">
-                <strong>💡 Regra de Ouro:</strong> Cobrar barato atrai clientes que dão trabalho. Cobrar valor justo atrai clientes que valorizam seu serviço. Se você resolver o problema deles, o preço é o menor dos problemas!
-            </div>
+    <div class="caixa">
+        <h2>Inteligências Artificiais</h2>
+        
+        <div class="ferramenta">
+            <strong>🤖 ChatGPT</strong>
+            <a href="https://chatgpt.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA mais completa para criação de textos, prompts e estratégias.</p>
         </div>
 
-        <!-- SEÇÃO 2: CONSEGUIR CLIENTES -->
-        <div class="secao">
-            <h2>🎯 COMO CONQUISTAR SEUS PRIMEIROS CLIENTES</h2>
-            <p>Não adianta saber fazer se ninguém sabe que você existe. Veja onde achar quem paga:</p>
-            
-            <p><strong>📍 Onde encontrar:</strong></p>
-            <p>• <strong>Instagram:</strong> Segmente empresas locais, comente nas postagens, ofereça ajuda</p>
-            <p>• <strong>LinkedIn:</strong> Conecte-se com donos de empresas e gerentes. Publique dicas de IA</p>
-            <p>• <strong>Grupos de WhatsApp/Facebook:</strong> Participe de grupos de empresários e comércio local</p>
-            <p>• <strong>Plataformas:</strong> Workana, 99Freelas — comece por aqui para construir portfólio</p>
-            <p>• <strong>Indicação:</strong> Faça um bom trabalho para o primeiro cliente → ele te indica para mais 3</p>
-
-            <div class="destaque">
-                <strong>📩 Modelo de mensagem para enviar:</strong><br>
-                "Olá [nome], notei que sua empresa poderia economizar muito tempo usando inteligência artificial para [atividade]. Eu configuro sistemas que respondem e-mails, criam conteúdo e atendem clientes automaticamente. Posso apresentar uma proposta sem compromisso?"
-            </div>
+        <div class="ferramenta">
+            <strong>🔮 Gemini</strong>
+            <a href="https://gemini.google.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA do Google, excelente para análise e respostas rápidas.</p>
         </div>
 
-        <!-- SEÇÃO 3: CONTRATOS -->
-        <div class="secao">
-            <h2>📋 CONTRATO E PROPOSTA — Modelos Prontos</h2>
-            <p>Nunca trabalhe sem acordo escrito. Isso protege VOCÊ e dá confiança ao cliente.</p>
-            
-            <p><strong>O que NÃO pode faltar na proposta:</strong></p>
-            <p>✅ O que você vai entregar (ex: 15 posts por mês)</p>
-            <p>✅ Prazo de entrega</p>
-            <p>✅ Valor e forma de pagamento (ex: 50% entrada + 50% na entrega)</p>
-            <p>✅ Revisões: quantas inclusas e valor das extras</p>
-            <p>✅ Prazo de pagamento e juros de atraso</p>
-
-            <div class="destaque">
-                <strong>⚠️ Regra de Segurança:</strong> Sempre peça no mínimo 50% de entrada antes de começar. Isso filtra quem é sério e quem não é.
-            </div>
+        <div class="ferramenta">
+            <strong>📝 Claude</strong>
+            <a href="https://claude.ai" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA especialista em textos longos e documentos.</p>
         </div>
 
-        <!-- SEÇÃO 4: CUIDADOS E ÉTICA -->
-        <div class="secao">
-            <h2>⚠️ CUIDADOS E LIMITAÇÕES DA IA</h2>
-            
-            <div class="aviso">
-                <h3>O que a IA Pode ERRAR:</h3>
-                <p>• Pode inventar informações, nomes e fatos que não existem</p>
-                <p>• Pode ter erros de cálculo e dados desatualizados</p>
-                <p>• Pode gerar textos parecidos com outros já existentes</p>
-                <p>• NÃO sabe tudo — sempre confira antes de entregar!</p>
-            </div>
-
-            <div class="dica">
-                <h3>Seu Valor Está Aqui:</h3>
-                <p>A IA é a ferramenta. VOCÊ é o profissional que revisa, confere, melhora e entrega qualidade. A IA acelera o trabalho, mas SEU conhecimento e atenção são insubstituíveis. Nunca entregue algo sem ler antes!</p>
-            </div>
+        <div class="ferramenta">
+            <strong>🔍 Perplexity</strong>
+            <a href="https://perplexity.ai" target="_blank" class="link-acessar">Acessar →</a>
+            <p>IA com busca em tempo real, ótima para pesquisa.</p>
         </div>
 
-        <!-- SEÇÃO 5: PROMPTS PRONTOS -->
-        <div class="secao">
-            <h2>📚 5 PROMPTS PRONTOS PARA COPIAR E USAR</h2>
-            
-            <p><strong>1. Para escrever textos de vendas:</strong><br>
-            <em>"Escreva uma mensagem de vendas persuasiva sobre [produto], mostrando o problema que resolve e o benefício principal. Use tom confiante e chamadas para ação claras."</em></p>
-            
-            <p><strong>2. Para criar conteúdo de redes sociais:</strong><br>
-            <em>"Crie 5 postagens sobre [tema], com tom amigável, perguntas para engajar e hashtags relevantes. Deixe prontas para publicar."</em></p>
-            
-            <p><strong>3. Para resumir documentos:</strong><br>
-            <em>"Resuma o texto abaixo em pontos principais, destacando as informações mais importantes e decisões a serem tomadas:"</em></p>
-            
-            <p><strong>4. Para responder e-mails e mensagens:</strong><br>
-            <em>"Responda esta mensagem de forma educada, profissional e objetiva. Seja breve e resolva o assunto:"</em></p>
-            
-            <p><strong>5. Para criar roteiros e aulas:</strong><br>
-            <em>"Crie um roteiro estruturado sobre [tema], dividido em introdução, desenvolvimento e conclusão. Use exemplos práticos."</em></p>
+        <div class="ferramenta">
+            <strong>✨ Poe</strong>
+            <a href="https://poe.com" target="_blank" class="link-acessar">Acessar →</a>
+            <p>Reúne várias IAs em um só lugar.</p>
         </div>
-
-        <!-- SEÇÃO 6: CRESCIMENTO -->
-        <div class="secao">
-            <h2>🧠 DE PRESTADOR DE SERVIÇO A DONO DE NEGÓCIO</h2>
-            
-            <p><strong>Fase 1 — Começando:</strong> Você usa a IA para entregar serviços e ganhar dinheiro. Aprende no dia a dia o que funciona.</p>
-            <p><strong>Fase 2 — Sistemização:</strong> Cria modelos, prompts e processos padrão. Agora você trabalha mais rápido e atende mais clientes.</p>
-            <p><strong>Fase 3 — Produtos e Escala:</strong> Transforma seu conhecimento em e-books, cursos e pacotes de prompts. Você cria UMA vez e vende infinitamente.</p>
-            
-            <div class="destaque">
-                <strong>🚀 A VERDADE:</strong> A IA é a ferramenta. VOCÊ é o empreendedor. O limite dos seus ganhos deixa de ser o tempo que você tem e passa a ser a sua capacidade de organizar e vender. Comece hoje, cresça com consistência!
-            </div>
-        </div>
-
     </div>
+
+    <a href="aulas.html" class="botao-voltar">⬅ Voltar para as Aulas</a>
+</div>
 
 </body>
 </html>
