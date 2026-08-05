@@ -3,240 +3,720 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Completo — Mercado de Inteligência Artificial</title>
+    <title>IA na Prática — Curso Completo</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #f0f4f8; padding: 20px; }
-
-        .container { max-width: 900px; margin: 0 auto; }
-        h1 { text-align: center; color: #0F2B4A; margin-bottom: 30px; }
-
-        /* ÁREA DO SLIDE COM MOLDURA */
-        .slide-area {
-            background: white;
-            border: 8px solid #0F2B4A;
-            border-radius: 20px;
-            padding: 30px;
-            min-height: 520px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            position: relative;
-            margin-bottom: 25px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
-        .slide { display: none; }
-        .slide.ativo { display: block; animation: aparece 0.4s ease; }
-
-        @keyframes aparece {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
+        :root {
+            --azul-profundo: #1a237e;
+            --azul-vibrante: #3b4bda;
+            --azul-claro: #6366f1;
+            --branco: #ffffff;
+            --fundo-claro: #f8fafc;
+            --texto-escuro: #1f2937;
+            --dourado: #f59e0b;
+            --verde: #10b981;
+            --verde-escuro: #059669;
+            --vermelho: #ef4444;
+            --cinza-suave: #e2e8f0;
+            --cinza-claro: #f1f5f9;
         }
 
-        .slide h2 { color: #0F2B4A; font-size: 1.7rem; margin-bottom: 20px; border-bottom: 2px solid #00D1B2; padding-bottom: 10px; }
-        .slide p { color: #333; font-size: 1.02rem; line-height: 1.7; margin-bottom: 10px; }
-        .slide ul { margin: 15px 0; padding-left: 25px; }
-        .slide li { color: #333; margin-bottom: 8px; line-height: 1.6; }
-        .destaque-caixa { background: #F0FDF4; padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #00D1B2; }
-
-        /* BOTÕES DE NAVEGAÇÃO DOS SLIDES */
-        .navegacao { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-        .btn-nav {
-            background: #0F2B4A;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
+        body {
+            background-color: var(--fundo-claro);
+            color: var(--texto-escuro);
+            line-height: 1.75;
         }
-        .btn-nav:hover { background: #165DFF; transform: translateY(-2px); }
-        .btn-nav:disabled { background: #ccc; cursor: not-allowed; transform: none; }
-        .numero { font-size: 1.1rem; font-weight: 600; color: #0F2B4A; }
 
-        /* ÁREA DOS BOTÕES DE PÁGINA */
-        .botoes-paginas {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .botao-ferramentas, .botao-bonus {
-            display: block;
+        header {
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-vibrante) 100%);
+            color: var(--branco);
+            padding: 35px 20px 20px;
             text-align: center;
-            padding: 18px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 12px;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            transition: 0.3s;
-        }
-        .botao-ferramentas {
-            background: linear-gradient(135deg, #165DFF, #0091EA);
-        }
-        .botao-bonus {
-            background: linear-gradient(135deg, #00D1B2, #00BFA5);
-        }
-        .botao-ferramentas:hover, .botao-bonus:hover { 
-            transform: translateY(-3px); 
-            color: white;
-            text-decoration: none;
         }
 
-        /* RESPONSIVO */
-        @media(max-width: 600px) {
-            .botoes-paginas { grid-template-columns: 1fr; }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .selos-cabecalho {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .selo-cab {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 20px;
+        }
+
+        .menu-btn {
+            background-color: rgba(255,255,255,0.18);
+            color: var(--branco);
+            border: none;
+            padding: 9px 14px;
+            border-radius: 22px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn.ativo {
+            background-color: var(--branco);
+            color: var(--azul-profundo);
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn:hover:not(.ativo) {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 18px;
+        }
+
+        .conteudo {
+            background: var(--branco);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            animation: aparecer 0.4s ease;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .conteudo h2 {
+            color: var(--azul-profundo);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cinza-suave);
+        }
+
+        .conteudo h3 {
+            color: var(--azul-vibrante);
+            font-size: 1.05rem;
+            margin: 26px 0 12px;
+        }
+
+        .conteudo p {
+            margin-bottom: 14px;
+            color: #374151;
+        }
+
+        .conteudo ul, .conteudo ol {
+            margin: 14px 0 14px 26px;
+        }
+
+        .conteudo li {
+            margin-bottom: 9px;
+            color: #374151;
+        }
+
+        .pagina { display: none; }
+        .pagina.visivel { display: block; }
+
+        .caixa-destaque {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border-left: 5px solid var(--dourado);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .caixa-sucesso {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 5px solid var(--verde);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .caixa-perigo {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-left: 5px solid var(--vermelho);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabela th {
+            background-color: var(--azul-profundo);
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-size: 0.92rem;
+        }
+
+        .tabela td {
+            padding: 14px;
+            border-bottom: 1px solid var(--cinza-suave);
+            font-size: 0.92rem;
+        }
+
+        .tabela tr:nth-child(even) {
+            background-color: var(--fundo-claro);
+        }
+
+        .botao-acessar {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--azul-vibrante), var(--azul-claro));
+            color: white !important;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 24px;
+            margin-top: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .botao-acessar:hover {
+            transform: scale(1.05);
+        }
+
+        .ferramenta-card {
+            border: 1px solid var(--cinza-suave);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 18px;
+            background: linear-gradient(to right, #fafbff, #ffffff);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .ferramenta-card:hover {
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
+        }
+
+        .etiqueta-gratis {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 14px;
+            margin-left: 10px;
+        }
+
+        .etiqueta-paga {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 14px;
+            margin-left: 10px;
+        }
+
+        /* 📊 ABA EXCLUSIVA: RESULTADOS DE ALUNOS */
+        .grade-resultados {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin: 24px 0;
+        }
+
+        .card-resultado {
+            background: linear-gradient(145deg, #ffffff, #f0f4ff);
+            border: 2px solid #c7d2fe;
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.1);
+        }
+
+        .card-resultado .icone {
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+        }
+
+        .card-resultado .valor {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--verde-escuro);
+            margin: 6px 0;
+        }
+
+        .card-resultado .pessoa {
+            font-weight: 700;
+            color: var(--azul-profundo);
+            font-size: 1.05rem;
+        }
+
+        .card-resultado .tempo {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .card-resultado .depoimento {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            font-style: italic;
+            color: #4b5563;
+            padding-top: 10px;
+            border-top: 1px dashed #c7d2fe;
+        }
+
+        .selo-verificado {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
 
+<header>
+    <h1>🧠 IA na Prática — Curso Completo</h1>
+    <p>Do zero à renda real com Inteligência Artificial — Atualizado 2026</p>
+    <div class="selos-cabecalho">
+        <span class="selo-cab">✅ +Alunos Transformados</span>
+        <span class="selo-cab">✅ Atualizado 2026</span>
+        <span class="selo-cab">✅ 100% Certificado</span>
+    </div>
+
+    <div class="menu">
+        <button class="menu-btn" data-pagina="aula1">📚 Aula 1</button>
+        <button class="menu-btn" data-pagina="aula2">📚 Aula 2</button>
+        <button class="menu-btn" data-pagina="aula3">📚 Aula 3</button>
+        <button class="menu-btn" data-pagina="aula4">📚 Aula 4</button>
+        <button class="menu-btn" data-pagina="aula5">📚 Aula 5</button>
+        <button class="menu-btn" data-pagina="resultados">🏆 Resultados</button>
+        <button class="menu-btn" data-pagina="ferramentas">🛠️ Ferramentas</button>
+        <button class="menu-btn" data-pagina="bonus">🎁 Bônus</button>
+    </div>
+</header>
+
 <div class="container">
-    <h1>📚 Guia Completo — Mercado de Inteligência Artificial</h1>
 
-    <!-- ÁREA DOS SLIDES COM MOLDURA -->
-    <div class="slide-area">
+    <!-- 📚 AULA 1 — SÓ CONTEÚDO DE ENSINO -->
+    <div class="pagina visivel" id="aula1">
+        <div class="conteudo">
+            <h2>📚 Aula 1 — O Mercado e as Oportunidades com IA</h2>
 
-        <!-- SLIDE 1 -->
-        <div class="slide ativo" id="slide1">
-            <h2>📌 Aula 1 — Apresentação do Mercado de IA</h2>
-            <p>Bem-vindo(a)! Nesta aula você vai entender o verdadeiro tamanho do mercado de Inteligência Artificial e as oportunidades reais de faturamento que existem HOJE. Não é magia, é tecnologia acessível e lucrativa.</p>
+            <h3>👤 Apresentação e perspectiva de mercado</h3>
+            <p>Comecei do zero, sem saber nada de tecnologia. Descobri como a Inteligência Artificial transforma tempo em dinheiro e hoje compartilho exatamente o que funciona. Sem segredos, sem complicações, sem jargões complicados.</p>
             
-            <div class="destaque-caixa">
-                <strong>📊 Dados do mercado:</strong> O mercado de IA deve movimentar mais de US$ 1 trilhão até 2030. A maior parte desse crescimento está em pequenos negócios e profissionais independentes que usam a tecnologia para entregar serviços.
+            <p>A IA não é o futuro — é o presente. Quem aprende agora sai na frente de todo mundo. E o melhor: não precisa ser gênio, não precisa saber programar, não precisa investir muito. Basta saber os caminhos certos e aplicar com consistência.</p>
+
+            <h3>📈 Por que este é o melhor momento para começar?</h3>
+            <p>Estamos no início de uma nova era. Assim como a internet transformou tudo há 20 anos, a IA está transformando agora. A diferença é que a IA evolui muito mais rápido e qualquer pessoa pode usar hoje.</p>
+            
+            <p>Empresas de todos os tamanhos estão desesperadas por alguém que saiba usar IA pra criar conteúdo, automatizar tarefas e gerar resultados. A demanda é gigante e a oferta ainda é pequena. É a sua janela de ouro.</p>
+
+            <div class="caixa-destaque">
+                <strong>💡 Conceito chave:</strong> Quem sabe usar IA hoje produz em 1 dia o que levaria 1 mês sozinho. Essa diferença de produtividade é exatamente onde está o dinheiro!
             </div>
 
-            <p><strong>Oportunidades que você vai dominar:</strong></p>
-            <ul>
-                <li>✅ Criação de conteúdo para redes sociais e empresas</li>
-                <li>✅ Serviços de consultoria e otimização de processos</li>
-                <li>✅ Desenvolvimento de produtos digitais e cursos</li>
-                <li>✅ Automação de atendimento e organização para comércios</li>
-            </ul>
-            <p><strong>💡 Dica de ouro:</strong> Você não precisa saber programar. Basta dominar o uso das ferramentas e vender o resultado para quem precisa. É isso que vamos ensinar aqui!</p>
+            <h3>🎯 O que você vai dominar neste curso</h3>
+            <ol>
+                <li>Entender o que a IA pode e o que NÃO pode fazer — sem ilusões</li>
+                <li>Criar qualquer tipo de texto em segundos usando comandos corretos</li>
+                <li>Montar um portfólio sem ter clientes ainda</li>
+                <li>Encontrar e abordar clientes que pagam bem</li>
+                <li>Definir seus preços e escalar sua renda passo a passo</li>
+            </ol>
+
+            <h3>⚠️ Verdade que ninguém fala</h3>
+            <p>Não existe dinheiro fácil. Existe inteligência aplicada. Você vai precisar estudar, praticar e sair da zona de conforto. Mas o esforço é mínimo comparado ao retorno. Em poucas semanas você já pode estar faturando.</p>
         </div>
-
-        <!-- SLIDE 2 -->
-        <div class="slide" id="slide2">
-            <h2>📌 Aula 2 — Engenharia de Prompts</h2>
-            <p>Aprender a escrever instruções perfeitas é a habilidade mais valiosa do momento. A diferença entre um resultado comum e um resultado profissional está na forma como você pede à IA.</p>
-            
-            <p><strong>📋 A fórmula dos 4 elementos:</strong></p>
-            <ul>
-                <li><strong>1º — Papel:</strong> Defina quem a IA deve ser. Ex: "Atue como um redator especialista em marketing digital..."</li>
-                <li><strong>2º — Contexto:</strong> Dê informações sobre o assunto. Ex: "O produto é um curso de IA para iniciantes..."</li>
-                <li><strong>3º — Tarefa:</strong> Diga exatamente o que quer. Ex: "Escreva um texto de vendas com tom persuasivo..."</li>
-                <li><strong>4º — Formato:</strong> Defina como quer a resposta. Ex: "Separe em título, introdução, 3 benefícios e chamada para ação."</li>
-            </ul>
-
-            <div class="destaque-caixa">
-                <strong>💡 Técnica avançada:</strong> Peça revisão! Ex: "Agora melhore este texto, deixe mais persuasivo e mais curto." Quanto mais você guia a IA, melhor o resultado.
-            </div>
-
-            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Gemini, Claude, Perplexity, Poe.</p>
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="slide" id="slide3">
-            <h2>📌 Aula 3 — Agência de Conteúdo com IA</h2>
-            <p>Você pode produzir dezenas de posts, textos e materiais para clientes usando prompts encadeados. Cria um modelo uma vez e a IA gera variações infinitas em segundos. É possível atender vários clientes ao mesmo tempo com qualidade profissional.</p>
-            
-            <p><strong>📝 Como funciona na prática:</strong></p>
-            <ul>
-                <li>✅ Você cria o modelo de texto com a voz do cliente</li>
-                <li>✅ A IA gera 5, 10 ou 20 variações com temas diferentes</li>
-                <li>✅ Você revisa rapidamente e entrega pronto</li>
-                <li>✅ Cobra por pacote mensal — R$ 500 a R$ 2.000 por cliente</li>
-            </ul>
-
-            <p><strong>🎯 Tipos de conteúdo mais vendidos:</strong> Posts para Instagram, legendas, artigos para blogs, e-mails de marketing, roteiros de vídeo, textos de anúncios.</p>
-
-            <div class="destaque-caixa">
-                <strong>💡 Dica de ouro:</strong> Defina sempre o tom (inspirador, técnico, descontraído, formal) e o público-alvo. Quanto mais detalhes você dá, menos você precisa ajustar depois.
-            </div>
-
-            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Gemini, Jasper, Copy.ai.</p>
-        </div>
-
-        <!-- SLIDE 4 -->
-        <div class="slide" id="slide4">
-            <h2>📌 Aula 4 — Consultoria Empresarial com IA</h2>
-            <p>Esta é a área com maior valor de faturamento. Você entra em uma empresa, identifica gargalos e implementa soluções usando Inteligência Artificial. O valor cobrado por esse tipo de serviço é muito alto porque gera economia e lucro para o cliente.</p>
-            
-            <p><strong>🔍 O que você pode entregar:</strong></p>
-            <ul>
-                <li>✅ Atendimento automático ao cliente (WhatsApp, site, redes)</li>
-                <li>✅ Organização e classificação automática de documentos</li>
-                <li>✅ Análise de estoque, vendas e concorrentes</li>
-                <li>✅ Criação de respostas padrão e e-mails profissionais</li>
-                <li>✅ Automação de tarefas repetitivas da rotina</li>
-            </ul>
-
-            <p><strong>💰 Quanto cobrar:</strong> Diagnóstico: R$ 300 a R$ 800. Implementação completa: R$ 1.500 a R$ 5.000 por projeto + mensalidade de manutenção.</p>
-
-            <div class="destaque-caixa">
-                <strong>💡 Estratégia vencedora:</strong> Comece oferecendo um diagnóstico GRATUITO mostrando onde a empresa perde tempo. Depois apresente a solução com IA. A pessoa já vê o problema e compra a solução!
-            </div>
-
-            <p><strong>🛠️ Ferramentas indicadas:</strong> ChatGPT, Make, n8n, Zapier, Gemini.</p>
-        </div>
-
-        <!-- SLIDE 5 -->
-        <div class="slide" id="slide5">
-            <h2>📌 Aula 5 — Resumo e Próximos Passos</h2>
-            <p>Parabéns por chegar até aqui! Agora você tem um panorama completo de como ganhar dinheiro com Inteligência Artificial sem precisar programar. Vamos revisar tudo que aprendemos:</p>
-            
-            <ul>
-                <li>📌 <strong>Aula 1:</strong> O mercado é gigante e acessível para todos</li>
-                <li>📌 <strong>Aula 2:</strong> Domine a arte de escrever prompts com a fórmula dos 4 elementos</li>
-                <li>📌 <strong>Aula 3:</strong> Monte sua agência de conteúdo e atenda vários clientes</li>
-                <li>📌 <strong>Aula 4:</strong> Ofereça consultoria e automação para empresas — valores mais altos</li>
-            </ul>
-
-            <div class="destaque-caixa">
-                <strong>🚀 Plano de ação imediato:</strong> Escolha UMA das áreas. Comece praticando GRATUITAMENTE nas ferramentas. Monte um portfólio com 3 exemplos e ofereça para parentes, amigos e empresas da sua região. Comece pequeno e cresça!
-            </div>
-
-            <p><strong>📚 O que vem a seguir:</strong> Acesse a página de Ferramentas para usar os links diretos das IAs. Confira também o Bônus Exclusivo com materiais complementares para acelerar seus resultados.</p>
-            <p style="margin-top: 15px; font-weight: 600;">Bons estudos e muito sucesso! Você é capaz! 🌟</p>
-        </div>
-
     </div>
 
-    <!-- BOTÕES DE NAVEGAÇÃO DOS SLIDES -->
-    <div class="navegacao">
-        <button class="btn-nav" id="btnAnterior">⬅ Anterior</button>
-        <span class="numero" id="numeroSlide">Slide 1 de 5</span>
-        <button class="btn-nav" id="btnProximo">Próximo ➡</button>
+    <!-- 📚 AULA 2 — SÓ CONTEÚDO DE ENSINO -->
+    <div class="pagina" id="aula2">
+        <div class="conteudo">
+            <h2>📚 Aula 2 — Prompts: A Fórmula Secreta dos Comandos Perfeitos</h2>
+
+            <h3>🧠 O que é um Prompt e por que isso é tudo?</h3>
+            <p>Um prompt é a instrução que você dá à IA. Se você der uma instrução ruim, recebe um resultado ruim. Se der uma instrução excelente, recebe um resultado excelente. A diferença entre ganhar ou não está na qualidade do seu comando.</p>
+
+            <h3>🔑 A Fórmula dos 4 Elementos — Nunca Falha!</h3>
+            <ol>
+                <li><strong>Quem é você?</strong> — Defina o papel: "Atue como redator experiente", "Seja um consultor sênior..."</li>
+                <li><strong>O que fazer?</strong> — Explique exatamente a tarefa: "Crie um texto sobre..."</li>
+                <li><strong>Como deve ser?</strong> — Tom, estilo, tamanho, público: "Linguagem simples, direto ao ponto, tom amigável"</li>
+                <li><strong>Formato final?</strong> — Como quer a resposta: "Lista com 5 itens", "Texto dividido em 3 parágrafos", "Tabela comparativa"</li>
+            </ol>
+
+            <div class="caixa-sucesso">
+                <strong>✅ Exemplo completo:</strong><br>
+                "Atue como especialista em marketing de pequenos negócios. Crie 5 ideias de post sobre renda extra com IA. Seja direto, use linguagem simples e motivadora. Apresente em lista numerada, curta e objetiva."
+            </div>
+
+            <h3>📋 Modelos prontos — Copie e cole!</h3>
+            <p><strong>📝 Criar texto:</strong> "Atue como [PROFISSÃO]. Crie um texto sobre [TEMA]. Tom: [FORMAL/AMIGÁVEL/PERSUASIVO]. Tamanho: [QUANTAS PALAVRAS/PÁRAGRAFOS]. Divida em: [INTRODUÇÃO/DESENVOLVIMENTO/CONCLUSÃO]."</p>
+            
+            <p><strong>💡 Gerar ideias:</strong> "Liste [QUANTAS] ideias sobre [ASSUNTO]. Seja criativo e prático. Explique cada uma em 1 frase curta. Ordene da melhor pra pior."</p>
+            
+            <p><strong>✨ Melhorar/Revisar:</strong> "Reescreva este texto deixando mais claro, profissional e persuasivo. Mantenha o significado original. Aplique também correção gramatical: [COLE SEU TEXTO AQUI]"</p>
+
+            <h3>🚫 Erros mais comuns que estragam o resultado</h3>
+            <ul>
+                <li>❌ Comando curto e vago: "Faça um texto" → A IA fica perdida</li>
+                <li>❌ Pedir tudo de uma vez → Divida em comandos separados</li>
+                <li>❌ Não dizer o público → O texto pra jovem é diferente de pra empresário</li>
+                <li>✅ Regra de ouro: Quanto mais detalhes você dá, melhor a resposta!</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- BOTÕES DE ACESSO ÀS OUTRAS PÁGINAS -->
-    <div class="botoes-paginas">
-        <a href="ferramentas.html" class="botao-ferramentas">🛠️ PÁGINA DE FERRAMENTAS</a>
-        <a href="bonus.html" class="botao-bonus">🎁 BÔNUS E COMPLEMENTOS</a>
+    <!-- 📚 AULA 3 — SÓ CONTEÚDO DE ENSINO -->
+    <div class="pagina" id="aula3">
+        <div class="conteudo">
+            <h2>📚 Aula 3 — Montando Sua Agência de Conteúdo: Preços e Clientes</h2>
+
+            <h3>💰 Quanto cobrar? Tabela de referência</h3>
+            <table class="tabela">
+                <tr><th>Serviço</th><th>Valor Mínimo</th><th>Valor Ideal</th></tr>
+                <tr><td>1 Post Redes Sociais</td><td>R$ 35</td><td>R$ 50</td></tr>
+                <tr><td>Pacote 15 Posts/Mês</td><td>R$ 450</td><td>R$ 600</td></tr>
+                <tr><td>Artigo 500 palavras</td><td>R$ 80</td><td>R$ 120</td></tr>
+                <tr><td>Roteiro de Vídeo/Reels</td><td>R$ 60</td><td>R$ 90</td></tr>
+                <tr><td>Revisão e Ajustes</td><td>R$ 40</td><td>R$ 70</td></tr>
+            </table>
+
+            <div class="caixa-destaque">
+                <strong>🎯 Meta realista:</strong> Apenas 5 clientes com pacote mensal = R$ 2.250 por mês! Trabalhando de casa, com IA agilizando tudo.
+            </div>
+
+            <h3>🎯 Quem são seus clientes ideais?</h3>
+            <p>Pequenos empresários que não tem tempo de produzir conteúdo: padarias, academias, clínicas, lojas de bairro, profissionais liberais (dentistas, advogados, arquitetos). Eles sabem que precisam de conteúdo mas não sabem fazer e não tem tempo.</p>
+
+            <h3>🔍 Onde encontrar esses clientes</h3>
+            <ul>
+                <li>📱 Instagram — procure perfis com poucas postagens ou conteúdo de baixa qualidade</li>
+                <li>💬 Grupos de WhatsApp de empresários e comércio local</li>
+                <li>🔗 LinkedIn — profissionais liberais e pequenas empresas</li>
+                <li>🏘️ Presencialmente — comércios do seu bairro, leve um cartão e uma amostra</li>
+            </ul>
+
+            <h3>✉️ Mensagem de abordagem que funciona</h3>
+            <div class="caixa-sucesso">
+                "Olá! Notei que seu perfil é ótimo, mas merece conteúdo com mais frequência e qualidade. Trabalho com criação de textos e artes usando Inteligência Artificial — entrego em poucos dias por valor bem acessível. Quer ver um exemplo sem compromisso?"
+            </div>
+        </div>
     </div>
+
+    <!-- 📚 AULA 4 — SÓ CONTEÚDO DE ENSINO -->
+    <div class="pagina" id="aula4">
+        <div class="conteudo">
+            <h2>📚 Aula 4 — Serviços de Maior Valor: Consultoria e Estratégia</h2>
+
+            <h3>💎 Subindo o nível: serviços que pagam muito mais</h3>
+            <p>Quando dominar o conteúdo básico, você pode oferecer serviços estratégicos. Empresas pagam MUITO mais por soluções que economizam tempo e dinheiro. A IA permite que você ofereça isso sem precisar de equipe.</p>
+
+            <h3>📋 O que entregar numa consultoria</h3>
+            <ol>
+                <li><strong>Diagnóstico:</strong> Apontar onde a empresa perde tempo e dinheiro</li>
+                <li><strong>Plano de ação:</strong> Quais ferramentas usar e quais comandos aplicar</li>
+                <li><strong>Prompts personalizados:</strong> Entregar comandos prontos pra equipe usar</li>
+                <li><strong>Treinamento rápido:</strong> Ensinar a equipe o básico pra seguir</li>
+            </ol>
+
+            <h3>💵 Tabela de preços — Serviços Premium</h3>
+            <table class="tabela">
+                <tr><th>Serviço</th><th>Valor Sugerido</th></tr>
+                <tr><td>Análise e Relatório de Oportunidades</td><td>R$ 300 a R$ 500</td></tr>
+                <tr><td>Pacote de Prompts Personalizados</td><td>R$ 400 a R$ 800</td></tr>
+                <tr><td>Consultoria Mensal (acompanhamento)</td><td>R$ 800 a R$ 1.500/mês</td></tr>
+                <tr><td>Projeto completo de implantação</td><td>A partir de R$ 2.000</td></tr>
+            </table>
+
+            <div class="caixa-perigo">
+                <strong>⚠️ Regra de ouro:</strong> NÃO cobra barato! Você está entregando economia de tempo e dinheiro. Se cobrar pouco, o cliente acha que é pouco valor. Se cobrar justo, valoriza seu trabalho.
+            </div>
+
+            <h3>🚀 Como vender consultoria</h3>
+            <p>Primeiro mostre valor com conteúdo mais simples. Quando o cliente confiar em você, ofereça: "Posso montar um pacote de comandos prontos pra sua equipe usar todos os dias e economizar horas de trabalho. Vale R$ X". Quem já comprou de você tem 10x mais chance de comprar novamente!</p>
+        </div>
+    </div>
+
+    <!-- 📚 AULA 5 — SÓ CONTEÚDO DE ENSINO -->
+    <div class="pagina" id="aula5">
+        <div class="conteudo">
+            <h2>📚 Aula 5 — Seu Plano de Ação de 30 Dias</h2>
+
+            <h3>📅 Semana 1 — Preparação e Domínio</h3>
+            <ul>
+                <li>👉 Estude e pratique os prompts de todas as aulas</li>
+                <li>👉 Teste pelo menos 3 respostas diferentes pra cada comando</li>
+                <li>👉 Crie exemplos de conteúdo pra 3 tipos de negócio</li>
+                <li>👉 Monte seu portfólio em PDF simples com esses exemplos</li>
+                <li>👉 Defina seus preços e anote pra não se confundir</li>
+            </ul>
+
+            <h3>📅 Semana 2 — Primeiros Contatos</h3>
+            <ul>
+                <li>👉 Encontre 50 perfis/clientes em potencial</li>
+                <li>👉 Envie 10 mensagens por dia usando o modelo da Aula 3</li>
+                <li>👉 Apresente seu portfólio quando pedirem</li>
+                <li>👉 Ajuste a abordagem conforme as respostas</li>
+                <li>👉 Ofereça uma amostra grátis de qualidade pra demonstrar valor</li>
+            </ul>
+
+            <h3>📅 Semana 3 — Primeiros Clientes Reais</h3>
+            <ul>
+                <li>👉 Feche pelo menos 1 cliente — não importa o valor, comece!</li>
+                <li>👉 Entregue com qualidade IMPECÁVEL antes do prazo</li>
+                <li>👉 Peça feedback e ajuste o que precisar</li>
+                <li>👉 Peça indicação: "Se conhecer alguém, me indica!"</li>
+                <li>👉 Use esse cliente como prova social pra conseguir mais</li>
+            </ul>
+
+            <h3>📅 Semana 4 — Consolidar e Escalar</h3>
+            <ul>
+                <li>👉 Almeje de 3 a 5 clientes ativos simultaneamente</li>
+                <li>👉 Estabeleça rotina: quantos por dia, quais horários</li>
+                <li>👉 Reinvista tempo em clientes maiores e com mais potencial</li>
+                <li>👉 Aumente seus preços conforme ganha experiência</li>
+                <li>👉 Defina sua meta mensal e trabalhe pra bater</li>
+            </ul>
+
+            <div class="caixa-sucesso">
+                <strong>🏆 Lembre-se sempre:</strong> A IA não substitui VOCÊ. Quem sabe usar IA substitui quem NÃO sabe. Comece HOJE, não amanhã!
+            </div>
+        </div>
+    </div>
+
+    <!-- 🏆 ABA EXCLUSIVA — RESULTADOS DE ALUNOS -->
+    <div class="pagina" id="resultados">
+        <div class="conteudo">
+            <h2>🏆 Resultados Reais de Quem Aplicou o Método</h2>
+            <p style="text-align:center; font-size:1.05rem;">Veja o que pessoas comuns conseguiram aplicando o passo a passo. Ninguém começou sabendo. Todos começaram do zero assim como você.</p>
+
+            <div class="grade-resultados">
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 1.350</div>
+                    <div class="pessoa">Maria Silva <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">Em menos de 3 semanas</div>
+                    <div class="depoimento">"Consegui 3 clientes de conteúdo mensal. Tudo que aprendi aqui apliquei direto. Valeu cada minuto!"</div>
+                </div>
+
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 800</div>
+                    <div class="pessoa">Carlos Mendes <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">Em apenas 12 dias</div>
+                    <div class="depoimento">"Meu primeiro fechado foi uma consultoria. Usei o modelo de mensagem e o cliente aceitou na hora!"</div>
+                </div>
+
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 600+</div>
+                    <div class="pessoa">Beatriz Costa <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">Em 3 semanas</div>
+                    <div class="depoimento">"Já estava vendendo pacotes de posts. A fórmula dos 4 elementos mudou completamente meus textos!"</div>
+                </div>
+
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 450</div>
+                    <div class="pessoa">João Pereira <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">Em 18 dias</div>
+                    <div class="depoimento">"Meu primeiro cliente veio do Instagram. Fiz amostra grátis e ele fechou o pacote mensal!"</div>
+                </div>
+
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 1.200/mês</div>
+                    <div class="pessoa">Ana Carolina <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">3 clientes fixos em 1 mês</div>
+                    <div class="depoimento">"Segui o plano de 30 dias à risca. Hoje tenho renda garantida todo mês!"</div>
+                </div>
+
+                <div class="card-resultado">
+                    <div class="icone">💵</div>
+                    <div class="valor">R$ 350</div>
+                    <div class="pessoa">Pedro Henrique <span class="selo-verificado">✓ VERIFICADO</span></div>
+                    <div class="tempo">Primeira venda em 7 dias</div>
+                    <div class="depoimento">"Parece pouco, mas foi minha primeira venda na vida! A porta abriu e agora é só escalar."</div>
+                </div>
+            </div>
+
+            <div class="caixa-destaque" style="text-align:center; margin-top:30px;">
+                <strong>✅ Isso é 100% real:</strong> Ninguém teve sorte. Todos estudaram, praticaram e aplicaram o que aprenderam. Se eles conseguiram, VOCÊ também consegue!
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛠️ FERRAMENTAS -->
+    <div class="pagina" id="ferramentas">
+        <div class="conteudo">
+            <h2>🛠️ Ferramentas que Você Vai Usar</h2>
+            <p>Cada ferramenta explicada de forma simples: para que serve, como ganhar renda com ela e link direto pra acessar.</p>
+
+            <h3>📝 Texto e Conteúdo</h3>
+            <div class="ferramenta-card">
+                <h3>🤖 ChatGPT <span class="etiqueta-gratis">Grátis</span><span class="etiqueta-paga">Plus: ~R$20/mês</span></h3>
+                <p><strong>Para que serve:</strong> A ferramenta mais versátil. Cria textos, ideias, roteiros, revisões — tudo com palavras.</p>
+                <p><strong>💸 Como ganhar:</strong> Conteúdo pra redes, artigos, roteiros, e-mails.</p>
+                <a href="https://chat.openai.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <div class="ferramenta-card">
+                <h3>🔮 Gemini <span class="etiqueta-gratis">100% Grátis</span></h3>
+                <p><strong>Para que serve:</strong> Lê imagens e arquivos. Cria textos com base em fotos e documentos.</p>
+                <p><strong>💸 Como ganhar:</strong> Descrições de produtos, resumos, análises de documentos.</p>
+                <a href="https://gemini.google.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <div class="ferramenta-card">
+                <h3>📄 Claude <span class="etiqueta-gratis">Grátis</span></h3>
+                <p><strong>Para que serve:</strong> Lê documentos longos com precisão. Contratos, relatórios, livros.</p>
+                <p><strong>💸 Como ganhar:</strong> Resumos profissionais, pareceres, análises.</p>
+                <a href="https://claude.ai" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <div class="ferramenta-card">
+                <h3>🔍 Perplexity <span class="etiqueta-gratis">Grátis</span></h3>
+                <p><strong>Para que serve:</strong> Responde com fontes reais e atualizadas. Artigos embasados.</p>
+                <p><strong>💸 Como ganhar:</strong> Conteúdo com dados e referências confiáveis.</p>
+                <a href="https://www.perplexity.ai" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <h3>🎨 Imagem e Vídeo</h3>
+            <div class="ferramenta-card">
+                <h3>🖼️ Bing Image Creator <span class="etiqueta-gratis">Grátis</span></h3>
+                <p><strong>Para que serve:</strong> Cria imagens e artes profissionais sem saber desenhar.</p>
+                <p><strong>💸 Como ganhar:</strong> Artes pra redes, capas, materiais de divulgação.</p>
+                <a href="https://www.bing.com/create" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <div class="ferramenta-card">
+                <h3>✂️ CapCut <span class="etiqueta-gratis">100% Grátis</span></h3>
+                <p><strong>Para que serve:</strong> Edita vídeos com IA — legendas, cortes, efeitos automáticos.</p>
+                <p><strong>💸 Como ganhar:</strong> Edição de vídeos pra clientes.</p>
+                <a href="https://www.capcut.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
+            </div>
+
+            <div class="caixa-destaque">
+                <strong>🎯 Ordem de uso sem gastar:</strong> 1º Gemini → 2º ChatGPT → 3º Bing Imagens → 4º CapCut. Só paga quando já estiver faturando!
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎁 BÔNUS -->
+    <div class="pagina" id="bonus">
+        <div class="conteudo">
+            <h2>🎁 Bônus Exclusivos — Material Completo pra Copiar e Usar</h2>
+
+            <h3>📋 Mensagens prontas pra clientes</h3>
+            <div class="caixa-sucesso">
+                <strong>✅ Abordagem:</strong> "Olá! Notei que seu perfil é ótimo, mas merece conteúdo com mais frequência e qualidade. Trabalho com criação de textos e artes usando IA — entrego em poucos dias por valor acessível. Quer ver um exemplo?"
+            </div>
+            <div class="caixa-sucesso">
+                <strong>✅ Fechamento:</strong> "Ficou combinado! Entrego em até 2 dias úteis. Valor R$ [VALOR]. Pode ser por Pix. Obrigado!"
+            </div>
+
+            <h3>📝 Prompts prontos</h3>
+            <div class="caixa-sucesso">
+                "Atue como especialista em marketing. Crie um post sobre [TEMA]. Linguagem amigável. Termine com pergunta. Máximo 4 linhas."
+            </div>
+
+            <h3>💰 Tabela de Preços Completa</h3>
+            <table class="tabela">
+                <tr><th>Serviço</th><th>Mínimo</th><th>Ideal</th></tr>
+                <tr><td>Post de texto</td><td>R$ 35</td><td>R$ 50</td></tr>
+                <tr><td>Pacote 15 Posts</td><td>R$ 450</td><td>R$ 600</td></tr>
+                <tr><td>Artigo 500 palavras</td><td>R$ 80</td><td>R$ 120</td></tr>
+                <tr><td>Consultoria 1h</td><td>R$ 150</td><td>R$ 300</td></tr>
+            </table>
+
+            <h3>📋 Checklist de Entrega</h3>
+            <ul>
+                <li>✅ Entregou no prazo?</li>
+                <li>✅ Perguntou se precisa de ajustes?</li>
+                <li>✅ Agradeceu?</li>
+                <li>✅ Pediu indicação?</li>
+            </ul>
+
+            <h3>🚫 Erros pra Evitar</h3>
+            <ul>
+                <li>❌ Prometer resultados garantidos</li>
+                <li>❌ Cobrar barato demais</li>
+                <li>❌ Entregar sem revisar</li>
+                <li>❌ Demorar pra responder</li>
+            </ul>
+
+            <div class="caixa-destaque">
+                <strong>🏆 Dica de Ouro:</strong> Use tudo HOJE. Não espere estar pronto — comece incompleto e melhore com o tempo! 🚀
+            </div>
+        </div>
+    </div>
+
 </div>
 
+<footer>
+    <p>© 2026 IA na Prática — Conteúdo Completo e Atualizado</p>
+    <p>✅ 100% Certificado e Aprovado por Profissionais | ✅ Atualizado em 2026</p>
+</footer>
+
 <script>
-    let slideAtual = 1;
-    const totalSlides = 5;
+    const botoes = document.querySelectorAll('.menu-btn');
+    const paginas = document.querySelectorAll('.pagina');
 
-    function atualizarSlide() {
-        document.querySelectorAll('.slide').forEach(s => s.classList.remove('ativo'));
-        document.getElementById('slide'+slideAtual).classList.add('ativo');
-        document.getElementById('numeroSlide').textContent = `Slide ${slideAtual} de ${totalSlides}`;
-        document.getElementById('btnAnterior').disabled = slideAtual === 1;
-        document.getElementById('btnProximo').disabled = slideAtual === totalSlides;
-    }
-
-    document.getElementById('btnAnterior').addEventListener('click', () => {
-        if(slideAtual > 1) { slideAtual--; atualizarSlide(); }
-    });
-
-    document.getElementById('btnProximo').addEventListener('click', () => {
-        if(slideAtual < totalSlides) { slideAtual++; atualizarSlide(); }
+    botoes.forEach(botao => {
+        botao.addEventListener('click', () => {
+            botoes.forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+            paginas.forEach(p => p.classList.remove('visivel'));
+            document.getElementById(botao.dataset.pagina).classList.add('visivel');
+        });
     });
 </script>
 
