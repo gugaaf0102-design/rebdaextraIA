@@ -3,722 +3,1056 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA na Prática — Curso Completo</title>
+    <title>IA — O Guia Completo</title>
+    <meta name="description" content="Formação prática em Inteligência Artificial para produtividade, criatividade e negócios.">
+    <meta property="og:title" content="IA — O Guia Completo">
+    <meta property="og:description" content="Formação prática em Inteligência Artificial para produtividade, criatividade e negócios.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+        :root {
+            --bg: #05070a;
+            --panel: #0b0f15;
+            --panel2: #111720;
+            --line: rgba(154, 188, 225, 0.14);
+            --muted: #8190a2;
+            --text: #f4f8fc;
+            --blue: #19b8ff;
+            --blue2: #536dff;
+            --silver: #cbd5e1;
         }
 
-        :root {
-            --azul-profundo: #1a237e;
-            --azul-vibrante: #3b4bda;
-            --azul-claro: #6366f1;
-            --branco: #ffffff;
-            --fundo-claro: #f8fafc;
-            --texto-escuro: #1f2937;
-            --dourado: #f59e0b;
-            --verde: #10b981;
-            --verde-escuro: #059669;
-            --vermelho: #ef4444;
-            --cinza-suave: #e2e8f0;
-            --cinza-claro: #f1f5f9;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--fundo-claro);
-            color: var(--texto-escuro);
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input {
+            font: inherit;
+        }
+
+        button {
+            color: inherit;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topbar {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(22px, 5vw, 76px);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(5, 7, 10, 0.82);
+            backdrop-filter: blur(18px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-mark {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -4px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid #229fff;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            box-shadow: inset 0 0 16px rgba(25, 184, 255, 0.18), 0 0 20px rgba(25, 184, 255, 0.12);
+        }
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .brand-copy strong {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+        }
+
+        .brand-copy small {
+            font-size: 8px;
+            letter-spacing: 0.35em;
+            color: var(--blue);
+        }
+
+        nav {
+            display: flex;
+            gap: 36px;
+            font-size: 13px;
+            color: #a9b3bf;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile > span {
+            font-size: 11px;
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .profile div {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--line);
+            padding-left: 12px;
+        }
+
+        .profile strong {
+            font-size: 11px;
+        }
+
+        .profile small {
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .profile button {
+            border: 1px solid #263444;
+            background: #111923;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 10px;
+        }
+
+        .hero {
+            min-height: 680px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+            align-items: center;
+            gap: 70px;
+            padding: 80px clamp(22px, 9vw, 145px);
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            right: -230px;
+            top: -130px;
+            background: radial-gradient(circle, rgba(20, 143, 255, 0.22), transparent 65%);
+            filter: blur(20px);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(72, 121, 175, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 121, 175, 0.055) 1px, transparent 1px);
+            background-size: 62px 62px;
+            mask-image: linear-gradient(90deg, black, transparent 85%);
+        }
+
+        .hero-orbit {
+            position: absolute;
+            border: 1px solid rgba(41, 165, 255, 0.19);
+            border-radius: 50%;
+            right: -350px;
+            top: -270px;
+            width: 900px;
+            height: 900px;
+            box-shadow: inset 0 0 90px rgba(27, 111, 255, 0.04);
+        }
+
+        .orbit-two {
+            width: 650px;
+            height: 650px;
+            right: -220px;
+            top: -145px;
+            border-color: rgba(88, 218, 255, 0.13);
+        }
+
+        .hero-content, .hero-card {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow, .kicker {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            color: var(--blue);
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .eyebrow i {
+            width: 28px;
+            height: 1px;
+            background: var(--blue);
+            box-shadow: 0 0 8px var(--blue);
+            display: block;
+        }
+
+        h1 {
+            font-size: clamp(46px, 5.2vw, 80px);
+            line-height: 1.01;
+            letter-spacing: -0.055em;
+            margin: 24px 0;
+            max-width: 860px;
+        }
+
+        h1 span {
+            background: linear-gradient(100deg, #fff 15%, #8ecbff 65%, #5a74ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content > p {
+            max-width: 630px;
+            color: #95a2b1;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin: 34px 0 50px;
+        }
+
+        .button {
+            border: 1px solid var(--line);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding: 16px 22px;
+            border-radius: 4px;
+            font-weight: 650;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+        }
+
+        .primary {
+            background: linear-gradient(110deg, #068cd3, #3463f3);
+            border-color: #3ca9f3;
+            box-shadow: 0 10px 35px rgba(19, 132, 247, 0.2);
+            color: white;
+        }
+
+        .primary:hover {
+            filter: brightness(1.15);
+        }
+
+        .secondary {
+            background: rgba(255, 255, 255, 0.025);
+            color: white;
+        }
+
+        .proof {
+            display: flex;
+            gap: 44px;
+        }
+
+        .proof div {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--line);
+            padding-left: 14px;
+        }
+
+        .proof strong {
+            font-size: 17px;
+        }
+
+        .proof span {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .hero-card {
+            max-width: 360px;
+            justify-self: end;
+            padding: 32px;
+            background: linear-gradient(145deg, rgba(17, 24, 34, 0.85), rgba(7, 11, 17, 0.72));
+            border: 1px solid rgba(74, 144, 207, 0.25);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+        }
+
+        .card-kicker {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #8291a3;
+        }
+
+        .progress-ring {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 28px auto;
+            display: grid;
+            place-items: center;
+            background: conic-gradient(var(--blue) 0 78%, #182330 78%);
+            box-shadow: 0 0 45px rgba(25, 184, 255, 0.16);
+            position: relative;
+        }
+
+        .progress-ring:before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            background: #0b1119;
+        }
+
+        .progress-ring div {
+            z-index: 1;
+            text-align: center;
+        }
+
+        .progress-ring strong {
+            font-size: 47px;
+            letter-spacing: -0.07em;
+        }
+
+        .progress-ring small {
+            font-size: 14px;
+            color: var(--blue);
+        }
+
+        .hero-card h2 {
+            font-size: 20px;
+            text-align: center;
+            margin: 0 0 9px;
+        }
+
+        .hero-card > p {
+            font-size: 11px;
+            line-height: 1.7;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .progress-track {
+            height: 3px;
+            background: #1a2633;
+            margin-top: 24px;
+        }
+
+        .progress-track i {
+            display: block;
+            height: 100%;
+            width: 78%;
+            background: var(--blue);
+            box-shadow: 0 0 12px var(--blue);
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 14px;
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .progress-meta strong {
+            color: white;
+        }
+
+        .journey, .resources {
+            padding: 100px clamp(22px, 7vw, 110px);
+        }
+
+        .journey {
+            background: #080b10;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 60px;
+            margin: 0 auto 48px;
+            max-width: 1220px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(35px, 4vw, 55px);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+            margin: 16px 0 0;
+        }
+
+        .section-heading > p {
+            max-width: 390px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        .course-shell {
+            display: grid;
+            grid-template-columns: 285px 1fr;
+            max-width: 1220px;
+            margin: 0 auto;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            min-height: 700px;
+        }
+
+        .course-shell aside {
+            border-right: 1px solid var(--line);
+            padding: 22px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #080c11;
+            border: 1px solid var(--line);
+            padding: 12px;
+        }
+
+        .search span {
+            color: var(--muted);
+            font-size: 19px;
+        }
+
+        .search input {
+            background: transparent;
+            border: 0;
+            outline: 0;
+            color: white;
+            width: 100%;
+            font-size: 11px;
+        }
+
+        .module-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .module-list button {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 36px 1fr 20px;
+            align-items: center;
+            text-align: left;
+            border: 0;
+            background: transparent;
+            padding: 15px 10px;
+            border-left: 2px solid transparent;
+        }
+
+        .module-list button:hover, .module-list button.active {
+            background: linear-gradient(90deg, rgba(25, 184, 255, 0.11), transparent);
+            border-left-color: var(--blue);
+        }
+
+        .module-list .number {
+            font-size: 10px;
+            font-weight: 600;
+            color: #617083;
+        }
+
+        .module-list button > span:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .module-list small {
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #5f6d7e;
+        }
+
+        .module-list strong {
+            font-size: 12px;
+        }
+
+        .module-list i {
+            font-style: normal;
+            color: var(--blue);
+        }
+
+        .certificate {
+            margin-top: auto;
+            border-top: 1px solid var(--line);
+            padding: 20px 8px 5px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .certificate > span {
+            border: 1px solid #37526b;
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            color: var(--blue);
+        }
+
+        .certificate div {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .certificate small {
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: var(--blue);
+        }
+
+        .certificate strong {
+            font-size: 9px;
+            color: #9aa6b4;
+        }
+
+        .lesson-panel {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            grid-template-rows: auto 1fr;
+        }
+
+        .lesson-top {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            padding: 19px 28px;
+            border-bottom: 1px solid var(--line);
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.13em;
+            color: #758598;
+        }
+
+        .lesson-top div {
+            display: flex;
+            gap: 22px;
+        }
+
+        .lesson-visual {
+            position: relative;
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+            border-right: 1px solid var(--line);
+            background: radial-gradient(circle at 50% 45%, #101d2c, #070a0e 62%);
+        }
+
+        .lesson-visual:after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(34, 165, 255, 0.28);
+            border-radius: 50%;
+            box-shadow: 0 0 35px rgba(29, 138, 255, 0.1), inset 0 0 35px rgba(29, 138, 255, 0.06);
+        }
+
+        .visual-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #0c71ff;
+            filter: blur(90px);
+            opacity: 0.22;
+        }
+
+        .mini-logo {
+            font-size: 84px;
+            font-weight: 900;
+            letter-spacing: -0.13em;
+            z-index: 2;
+            text-shadow: 0 0 22px rgba(255, 255, 255, 0.16);
+        }
+
+        .mini-logo span {
+            font-size: 23px;
+            color: var(--blue);
+        }
+
+        .visual-label {
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.35em;
+            color: #9eaab8;
+            z-index: 2;
+            margin: 8px 0 48px;
+        }
+
+        .lesson-visual button {
+            z-index: 2;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid #4abfff;
+            background: rgba(12, 114, 215, 0.38);
+            box-shadow: 0 0 28px rgba(25, 184, 255, 0.3);
+            padding-left: 4px;
+            font-size: 20px;
+        }
+
+        .lesson-visual small {
+            z-index: 2;
+            font-size: 7px;
+            letter-spacing: 0.14em;
+            color: #6d7d90;
+            margin-top: 13px;
+        }
+
+        .lesson-copy {
+            padding: 54px 48px;
+        }
+
+        .lesson-copy h2 {
+            font-size: 37px;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin: 16px 0;
+        }
+
+        .lesson-copy > p {
+            color: var(--muted);
+            font-size: 12px;
             line-height: 1.75;
         }
 
-        header {
-            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-vibrante) 100%);
-            color: var(--branco);
-            padding: 35px 20px 20px;
-            text-align: center;
+        .topics {
+            margin: 30px 0;
         }
 
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .selos-cabecalho {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-        }
-
-        .selo-cab {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 20px;
-        }
-
-        .menu-btn {
-            background-color: rgba(255,255,255,0.18);
-            color: var(--branco);
-            border: none;
-            padding: 9px 14px;
-            border-radius: 22px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .menu-btn.ativo {
-            background-color: var(--branco);
-            color: var(--azul-profundo);
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .menu-btn:hover:not(.ativo) {
-            background-color: rgba(255,255,255,0.3);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 18px;
-        }
-
-        .conteudo {
-            background: var(--branco);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            animation: aparecer 0.4s ease;
-        }
-
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .conteudo h2 {
-            color: var(--azul-profundo);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--cinza-suave);
-        }
-
-        .conteudo h3 {
-            color: var(--azul-vibrante);
-            font-size: 1.05rem;
-            margin: 26px 0 12px;
-        }
-
-        .conteudo p {
-            margin-bottom: 14px;
-            color: #374151;
-        }
-
-        .conteudo ul, .conteudo ol {
-            margin: 14px 0 14px 26px;
-        }
-
-        .conteudo li {
-            margin-bottom: 9px;
-            color: #374151;
-        }
-
-        .pagina { display: none; }
-        .pagina.visivel { display: block; }
-
-        .caixa-destaque {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            border-left: 5px solid var(--dourado);
-            padding: 18px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-
-        .caixa-sucesso {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            border-left: 5px solid var(--verde);
-            padding: 18px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-
-        .caixa-perigo {
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
-            border-left: 5px solid var(--vermelho);
-            padding: 18px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-
-        .tabela {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .tabela th {
-            background-color: var(--azul-profundo);
-            color: white;
-            padding: 14px;
-            text-align: left;
-            font-size: 0.92rem;
-        }
-
-        .tabela td {
-            padding: 14px;
-            border-bottom: 1px solid var(--cinza-suave);
-            font-size: 0.92rem;
-        }
-
-        .tabela tr:nth-child(even) {
-            background-color: var(--fundo-claro);
-        }
-
-        .botao-acessar {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--azul-vibrante), var(--azul-claro));
-            color: white !important;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 24px;
-            margin-top: 10px;
-            transition: transform 0.2s ease;
-        }
-
-        .botao-acessar:hover {
-            transform: scale(1.05);
-        }
-
-        .ferramenta-card {
-            border: 1px solid var(--cinza-suave);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 18px;
-            background: linear-gradient(to right, #fafbff, #ffffff);
-            transition: box-shadow 0.2s ease;
-        }
-
-        .ferramenta-card:hover {
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
-        }
-
-        .etiqueta-gratis {
-            display: inline-block;
-            background: #dcfce7;
-            color: #166534;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 14px;
-            margin-left: 10px;
-        }
-
-        .etiqueta-paga {
-            display: inline-block;
-            background: #fef3c7;
-            color: #92400e;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 14px;
-            margin-left: 10px;
-        }
-
-        /* 📊 ABA EXCLUSIVA: RESULTADOS DE ALUNOS */
-        .grade-resultados {
+        .topics div {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-            margin: 24px 0;
+            grid-template-columns: 32px 1fr 20px;
+            align-items: center;
+            border-top: 1px solid var(--line);
+            min-height: 48px;
         }
 
-        .card-resultado {
-            background: linear-gradient(145deg, #ffffff, #f0f4ff);
-            border: 2px solid #c7d2fe;
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.1);
+        .topics div:last-child {
+            border-bottom: 1px solid var(--line);
         }
 
-        .card-resultado .icone {
-            font-size: 2.2rem;
-            margin-bottom: 6px;
+        .topics span {
+            font-size: 8px;
+            color: #536273;
         }
 
-        .card-resultado .valor {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--verde-escuro);
-            margin: 6px 0;
+        .topics p {
+            font-size: 10px;
         }
 
-        .card-resultado .pessoa {
-            font-weight: 700;
-            color: var(--azul-profundo);
-            font-size: 1.05rem;
+        .topics i {
+            font-style: normal;
+            color: var(--blue);
+            font-size: 10px;
         }
 
-        .card-resultado .tempo {
-            font-size: 0.88rem;
-            color: #64748b;
-            margin-top: 4px;
+        .lesson-button {
+            width: 100%;
         }
 
-        .card-resultado .depoimento {
-            margin-top: 12px;
-            font-size: 0.92rem;
-            font-style: italic;
-            color: #4b5563;
-            padding-top: 10px;
-            border-top: 1px dashed #c7d2fe;
+        .resources {
+            background: #05070a;
         }
 
-        .selo-verificado {
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1220px;
+            margin: 0 auto;
+        }
+
+        .resource-grid > div {
+            position: relative;
+            padding: 42px 38px;
+            border: 1px solid var(--line);
+            min-height: 300px;
+        }
+
+        .resource-grid > div + div {
+            border-left: 0;
+        }
+
+        .resource-grid > div > span {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 9px;
+            font-weight: 600;
+            color: #3e4d5d;
+        }
+
+        .resource-grid i {
+            font-style: normal;
+            font-size: 30px;
+            color: var(--blue);
+        }
+
+        .resource-grid h3 {
+            font-size: 20px;
+            margin: 36px 0 14px;
+        }
+
+        .resource-grid p {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .resource-grid a {
             display: inline-block;
-            background: #dbeafe;
-            color: #1e40af;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 6px;
+            margin-top: 24px;
+            font-size: 10px;
+            color: #b9c8d8;
+        }
+
+        .resource-grid a:hover {
+            color: var(--blue);
         }
 
         footer {
-            background-color: #1e293b;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            margin-top: 30px;
-            border-radius: 12px;
+            border-top: 1px solid var(--line);
+            padding: 42px clamp(22px, 7vw, 110px);
+            display: grid;
+            grid-template-columns: 1.4fr 1fr auto auto;
+            align-items: center;
+            gap: 35px;
+            color: #718092;
+            font-size: 10px;
+        }
+
+        footer > div:nth-of-type(2) {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .brand-copy strong {
+            color: #c9d0d8;
+        }
+
+        @media (max-width: 950px) {
+            nav { display: none; }
+            .hero { grid-template-columns: 1fr; padding-top: 100px; }
+            .hero-card { justify-self: start; }
+            .course-shell { grid-template-columns: 1fr; }
+            .course-shell aside { border-right: 0; border-bottom: 1px solid var(--line); }
+            .certificate { margin-top: 18px; }
+            .lesson-panel { grid-template-columns: 1fr; }
+            .lesson-visual { border-right: 0; border-bottom: 1px solid var(--line); min-height: 480px; }
+            .resource-grid { grid-template-columns: 1fr; }
+            .resource-grid > div + div { border-left: 1px solid var(--line); border-top: 0; }
+            footer { grid-template-columns: 1fr 1fr; }
+            .profile div { display: none; }
+        }
+
+        @media (max-width: 620px) {
+            .topbar { height: 70px; }
+            .brand-copy { display: none; }
+            .profile > span { display: none; }
+            .hero { padding: 70px 22px; min-height: auto; }
+            .hero-content > p { font-size: 14px; }
+            .hero-actions { flex-direction: column; }
+            .proof { gap: 16px; justify-content: space-between; }
+            .hero-card { width: 100%; }
+            .section-heading { display: block; }
+            .section-heading > p { margin-top: 25px; }
+            .journey, .resources { padding: 75px 16px; }
+            .lesson-top { padding: 16px; gap: 15px; }
+            .lesson-top div { gap: 8px; }
+            .lesson-copy { padding: 38px 22px; }
+            .lesson-copy h2 { font-size: 30px; }
+            .lesson-visual { min-height: 400px; }
+            .resource-grid > div { padding: 34px 25px; }
+            footer { grid-template-columns: 1fr; }
+            footer > small { margin-top: 10px; }
         }
     </style>
 </head>
 <body>
+    <main>
+        <header class="topbar">
+            <a class="brand" href="#inicio">
+                <span class="brand-mark">IA</span>
+                <span class="brand-copy">
+                    <strong>INTELIGÊNCIA ARTIFICIAL</strong>
+                    <small>O GUIA COMPLETO</small>
+                </span>
+            </a>
+            <nav>
+                <a href="#trilha">Trilha</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#suporte">Suporte</a>
+            </nav>
+            <div class="profile">
+                <span>78%</span>
+                <div>
+                    <strong>Minha jornada</strong>
+                    <small>6 de 32 aulas</small>
+                </div>
+                <button>GA</button>
+            </div>
+        </header>
 
-<header>
-    <h1>🧠 IA na Prática — Curso Completo</h1>
-    <p>Do zero à renda real com Inteligência Artificial — Atualizado 2026</p>
-    <div class="selos-cabecalho">
-        <span class="selo-cab">✅ +Alunos Transformados</span>
-        <span class="selo-cab">✅ Atualizado 2026</span>
-        <span class="selo-cab">✅ 100% Certificado</span>
-    </div>
+        <section class="hero" id="inicio">
+            <div class="hero-grid"></div>
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <div class="hero-content">
+                <div class="eyebrow"><i></i> EXPERIÊNCIA DE APRENDIZADO 2026</div>
+                <h1>Domine a IA.<br><span>Multiplique seu potencial.</span></h1>
+                <p>Uma formação direta ao ponto para transformar Inteligência Artificial em produtividade, criatividade e novas fontes de renda.</p>
+                <div class="hero-actions">
+                    <a href="#trilha" class="button primary">Continuar aprendendo <b>→</b></a>
+                    <a href="#visao" class="button secondary">Conhecer a jornada</a>
+                </div>
+                <div class="proof">
+                    <div><strong>32</strong><span>aulas práticas</span></div>
+                    <div><strong>08h+</strong><span>de conteúdo</span></div>
+                    <div><strong>100%</strong><span>foco em aplicação</span></div>
+                </div>
+            </div>
+            <div class="hero-card">
+                <span class="card-kicker">SEU PROGRESSO</span>
+                <div class="progress-ring"><div><strong>78</strong><small>%</small></div></div>
+                <h2>Você está avançando</h2>
+                <p>Continue assim. Falta pouco para concluir sua primeira etapa.</p>
+                <div class="progress-track"><i></i></div>
+                <div class="progress-meta"><span>Módulo atual</span><strong>Fundamentos da IA</strong></div>
+            </div>
+        </section>
 
-    <div class="menu">
-        <button class="menu-btn" data-pagina="aula1">📚 Aula 1</button>
-        <button class="menu-btn" data-pagina="aula2">📚 Aula 2</button>
-        <button class="menu-btn" data-pagina="aula3">📚 Aula 3</button>
-        <button class="menu-btn" data-pagina="aula4">📚 Aula 4</button>
-        <button class="menu-btn" data-pagina="aula5">📚 Aula 5</button>
-        <button class="menu-btn" data-pagina="resultados">🏆 Resultados</button>
-        <button class="menu-btn" data-pagina="ferramentas">🛠️ Ferramentas</button>
-        <button class="menu-btn" data-pagina="bonus">🎁 Bônus</button>
-    </div>
-</header>
+        <section class="journey" id="trilha">
+            <div class="section-heading">
+                <div>
+                    <span class="kicker">SUA TRILHA DE EVOLUÇÃO</span>
+                    <h2>Do primeiro prompt à sua<br>operação com IA.</h2>
+                </div>
+                <p>Uma sequência pensada para você aprender, praticar e evoluir sem pular etapas importantes.</p>
+            </div>
+            <div class="course-shell">
+                <aside>
+                    <label class="search">
+                        <span>⌕</span>
+                        <input type="text" id="searchInput" placeholder="Buscar uma aula...">
+                    </label>
+                    <div class="module-list" id="moduleList">
+                        <!-- Módulos preenchidos pelo JavaScript -->
+                    </div>
+                    <div class="certificate">
+                        <span>◇</span>
+                        <div>
+                            <small>CERTIFICADO</small>
+                            <strong>Conclua todos os módulos</strong>
+                        </div>
+                    </div>
+                </aside>
+                <article class="lesson-panel">
+                    <div class="lesson-top" id="lessonTop">
+                        <span>MÓDULO 01 · FUNDAMENTOS</span>
+                        <div>
+                            <small>◷ 24 min</small>
+                            <small>▤ 5 aulas</small>
+                        </div>
+                    </div>
+                    <div class="lesson-visual">
+                        <div class="visual-glow"></div>
+                        <div class="mini-logo">IA<span>↗</span></div>
+                        <span class="visual-label">INTELIGÊNCIA ARTIFICIAL</span>
+                        <button>▶</button>
+                        <small>ASSISTA À INTRODUÇÃO · 02:14</small>
+                    </div>
+                    <div class="lesson-copy">
+                        <span class="kicker">COMECE POR AQUI</span>
+                        <h2 id="lessonTitle">O novo mercado da Inteligência Artificial</h2>
+                        <p id="lessonDesc">Entenda a revolução em curso, onde estão as oportunidades e como começar com clareza — mesmo partindo do absoluto zero.</p>
+                        <div class="topics" id="lessonTopics">
+                            <!-- Tópicos preenchidos pelo JavaScript -->
+                        </div>
+                        <button class="button primary lesson-button">Começar este módulo <b>→</b></button>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-<div class="container">
+        <section class="resources" id="recursos">
+            <div class="section-heading">
+                <div>
+                    <span class="kicker">MATERIAIS EXCLUSIVOS</span>
+                    <h2>Tudo o que você precisa<br>para acelerar.</h2>
+                </div>
+            </div>
+            <div class="resource-grid">
+                <div>
+                    <span>01</span>
+                    <i>⌁</i>
+                    <h3>Biblioteca de prompts</h3>
+                    <p>Comandos testados para conteúdo, vendas, estratégia e produtividade.</p>
+                    <a href="#">Explorar recursos →</a>
+                </div>
+                <div>
+                    <span>02</span>
+                    <i>◎</i>
+                    <h3>Mapa de ferramentas</h3>
+                    <p>Uma curadoria atualizada das melhores IAs para cada objetivo.</p>
+                    <a href="#">Ver ferramentas →</a>
+                </div>
+                <div>
+                    <span>03</span>
+                    <i>↗️</i>
+                    <h3>Plano de ação</h3>
+                    <p>Seu roteiro prático para sair do aprendizado e chegar ao resultado.</p>
+                    <a href="#">Abrir plano →</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- 📚 AULA 1 — SÓ CONTEÚDO DE ENSINO -->
-    <div class="pagina visivel" id="aula1">
-        <div class="conteudo">
-            <h2>📚 Aula 1 — O Mercado e as Oportunidades com IA</h2>
+        <footer id="suporte">
+            <div class="brand">
+                <span class="brand-mark">IA</span>
+                <span class="brand-copy">
+                    <strong>INTELIGÊNCIA ARTIFICIAL</strong>
+                    <small>O GUIA COMPLETO</small>
+                </span>
+            </div>
+            <p>Conhecimento que transforma curiosidade em capacidade.</p>
+            <div>
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="mailto:suporte@iaguia.com">Suporte</a>
+            </div>
+            <small>© 2026 IA — O Guia Completo.</small>
+        </footer>
+    </main>
 
-            <h3>👤 Apresentação e perspectiva de mercado</h3>
-            <p>Comecei do zero, sem saber nada de tecnologia. Descobri como a Inteligência Artificial transforma tempo em dinheiro e hoje compartilho exatamente o que funciona. Sem segredos, sem complicações, sem jargões complicados.</p>
+    <script>
+        const modules = [
+            { id: 1, label: "Fundamentos", title: "O novo mercado da Inteligência Artificial", duration: "24 min", lessons: 5, description: "Entenda a revolução em curso, onde estão as oportunidades e como começar com clareza — mesmo partindo do absoluto zero.", topics: ["O cenário da IA em 2026", "As oportunidades mais lucrativas", "Habilidades que o mercado procura", "Seu plano de evolução"] },
+            { id: 2, label: "Produtividade", title: "Domine prompts que geram resultados", duration: "38 min", lessons: 7, description: "Aprenda uma estrutura simples e replicável para conversar com qualquer IA e transformar ideias vagas em entregas profissionais.", topics: ["Anatomia de um prompt poderoso", "Contexto, formato e tom", "Erros que reduzem a qualidade", "Biblioteca de comandos prontos"] },
+            { id: 3, label: "Conteúdo", title: "Criação profissional em escala", duration: "45 min", lessons: 8, description: "Crie textos, imagens, roteiros e campanhas com consistência de marca e um fluxo de produção muito mais rápido.", topics: ["Conteúdo que prende atenção", "Imagens com direção criativa", "Roteiros para vídeos curtos", "Fluxo editorial com IA"] },
+            { id: 4, label: "Negócios", title: "Transforme habilidade em renda", duration: "52 min", lessons: 6, description: "Escolha serviços vendáveis, monte uma oferta clara e encontre clientes sem depender de uma audiência enorme.", topics: ["Serviços com alta demanda", "Oferta e posicionamento", "Prospecção sem parecer spam", "Precificação inteligente"] },
+            { id: 5, label: "Escala", title: "Automação e crescimento previsível", duration: "41 min", lessons: 6, description: "Organize processos, automatize tarefas repetitivas e construa uma operação enxuta que cresce sem perder qualidade.", topics: ["Mapeamento de processos", "Automações sem código", "Indicadores essenciais", "Plano de 30 dias"] }
+        ];
+
+        let activeModule = 1;
+        let searchQuery = "";
+
+        function renderModules() {
+            const list = document.getElementById("moduleList");
+            list.innerHTML = "";
             
-            <p>A IA não é o futuro — é o presente. Quem aprende agora sai na frente de todo mundo. E o melhor: não precisa ser gênio, não precisa saber programar, não precisa investir muito. Basta saber os caminhos certos e aplicar com consistência.</p>
+            const filtered = modules.filter(item => {
+                const text = `${item.label} ${item.title} ${item.description}`.toLowerCase();
+                return text.includes(searchQuery.toLowerCase());
+            });
 
-            <h3>📈 Por que este é o melhor momento para começar?</h3>
-            <p>Estamos no início de uma nova era. Assim como a internet transformou tudo há 20 anos, a IA está transformando agora. A diferença é que a IA evolui muito mais rápido e qualquer pessoa pode usar hoje.</p>
-            
-            <p>Empresas de todos os tamanhos estão desesperadas por alguém que saiba usar IA pra criar conteúdo, automatizar tarefas e gerar resultados. A demanda é gigante e a oferta ainda é pequena. É a sua janela de ouro.</p>
+            filtered.forEach(item => {
+                const btn = document.createElement("button");
+                btn.className = activeModule === item.id ? "active" : "";
+                btn.onclick = () => selectModule(item.id);
+                btn.innerHTML = `
+                    <span class="number">${String(item.id).padStart(2,"0")}</span>
+                    <span>
+                        <small>MÓDULO ${item.id}</small>
+                        <strong>${item.label}</strong>
+                    </span>
+                    <i>${activeModule === item.id ? "→" : ""}</i>
+                `;
+                list.appendChild(btn);
+            });
+        }
 
-            <div class="caixa-destaque">
-                <strong>💡 Conceito chave:</strong> Quem sabe usar IA hoje produz em 1 dia o que levaria 1 mês sozinho. Essa diferença de produtividade é exatamente onde está o dinheiro!
-            </div>
+        function selectModule(id) {
+            activeModule = id;
+            const selected = modules.find(m => m.id === id);
+            if (!selected) return;
 
-            <h3>🎯 O que você vai dominar neste curso</h3>
-            <ol>
-                <li>Entender o que a IA pode e o que NÃO pode fazer — sem ilusões</li>
-                <li>Criar qualquer tipo de texto em segundos usando comandos corretos</li>
-                <li>Montar um portfólio sem ter clientes ainda</li>
-                <li>Encontrar e abordar clientes que pagam bem</li>
-                <li>Definir seus preços e escalar sua renda passo a passo</li>
-            </ol>
-
-            <h3>⚠️ Verdade que ninguém fala</h3>
-            <p>Não existe dinheiro fácil. Existe inteligência aplicada. Você vai precisar estudar, praticar e sair da zona de conforto. Mas o esforço é mínimo comparado ao retorno. Em poucas semanas você já pode estar faturando.</p>
-        </div>
-    </div>
-
-    <!-- 📚 AULA 2 — SÓ CONTEÚDO DE ENSINO -->
-    <div class="pagina" id="aula2">
-        <div class="conteudo">
-            <h2>📚 Aula 2 — Prompts: A Fórmula Secreta dos Comandos Perfeitos</h2>
-
-            <h3>🧠 O que é um Prompt e por que isso é tudo?</h3>
-            <p>Um prompt é a instrução que você dá à IA. Se você der uma instrução ruim, recebe um resultado ruim. Se der uma instrução excelente, recebe um resultado excelente. A diferença entre ganhar ou não está na qualidade do seu comando.</p>
-
-            <h3>🔑 A Fórmula dos 4 Elementos — Nunca Falha!</h3>
-            <ol>
-                <li><strong>Quem é você?</strong> — Defina o papel: "Atue como redator experiente", "Seja um consultor sênior..."</li>
-                <li><strong>O que fazer?</strong> — Explique exatamente a tarefa: "Crie um texto sobre..."</li>
-                <li><strong>Como deve ser?</strong> — Tom, estilo, tamanho, público: "Linguagem simples, direto ao ponto, tom amigável"</li>
-                <li><strong>Formato final?</strong> — Como quer a resposta: "Lista com 5 itens", "Texto dividido em 3 parágrafos", "Tabela comparativa"</li>
-            </ol>
-
-            <div class="caixa-sucesso">
-                <strong>✅ Exemplo completo:</strong><br>
-                "Atue como especialista em marketing de pequenos negócios. Crie 5 ideias de post sobre renda extra com IA. Seja direto, use linguagem simples e motivadora. Apresente em lista numerada, curta e objetiva."
-            </div>
-
-            <h3>📋 Modelos prontos — Copie e cole!</h3>
-            <p><strong>📝 Criar texto:</strong> "Atue como [PROFISSÃO]. Crie um texto sobre [TEMA]. Tom: [FORMAL/AMIGÁVEL/PERSUASIVO]. Tamanho: [QUANTAS PALAVRAS/PÁRAGRAFOS]. Divida em: [INTRODUÇÃO/DESENVOLVIMENTO/CONCLUSÃO]."</p>
-            
-            <p><strong>💡 Gerar ideias:</strong> "Liste [QUANTAS] ideias sobre [ASSUNTO]. Seja criativo e prático. Explique cada uma em 1 frase curta. Ordene da melhor pra pior."</p>
-            
-            <p><strong>✨ Melhorar/Revisar:</strong> "Reescreva este texto deixando mais claro, profissional e persuasivo. Mantenha o significado original. Aplique também correção gramatical: [COLE SEU TEXTO AQUI]"</p>
-
-            <h3>🚫 Erros mais comuns que estragam o resultado</h3>
-            <ul>
-                <li>❌ Comando curto e vago: "Faça um texto" → A IA fica perdida</li>
-                <li>❌ Pedir tudo de uma vez → Divida em comandos separados</li>
-                <li>❌ Não dizer o público → O texto pra jovem é diferente de pra empresário</li>
-                <li>✅ Regra de ouro: Quanto mais detalhes você dá, melhor a resposta!</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- 📚 AULA 3 — SÓ CONTEÚDO DE ENSINO -->
-    <div class="pagina" id="aula3">
-        <div class="conteudo">
-            <h2>📚 Aula 3 — Montando Sua Agência de Conteúdo: Preços e Clientes</h2>
-
-            <h3>💰 Quanto cobrar? Tabela de referência</h3>
-            <table class="tabela">
-                <tr><th>Serviço</th><th>Valor Mínimo</th><th>Valor Ideal</th></tr>
-                <tr><td>1 Post Redes Sociais</td><td>R$ 35</td><td>R$ 50</td></tr>
-                <tr><td>Pacote 15 Posts/Mês</td><td>R$ 450</td><td>R$ 600</td></tr>
-                <tr><td>Artigo 500 palavras</td><td>R$ 80</td><td>R$ 120</td></tr>
-                <tr><td>Roteiro de Vídeo/Reels</td><td>R$ 60</td><td>R$ 90</td></tr>
-                <tr><td>Revisão e Ajustes</td><td>R$ 40</td><td>R$ 70</td></tr>
-            </table>
-
-            <div class="caixa-destaque">
-                <strong>🎯 Meta realista:</strong> Apenas 5 clientes com pacote mensal = R$ 2.250 por mês! Trabalhando de casa, com IA agilizando tudo.
-            </div>
-
-            <h3>🎯 Quem são seus clientes ideais?</h3>
-            <p>Pequenos empresários que não tem tempo de produzir conteúdo: padarias, academias, clínicas, lojas de bairro, profissionais liberais (dentistas, advogados, arquitetos). Eles sabem que precisam de conteúdo mas não sabem fazer e não tem tempo.</p>
-
-            <h3>🔍 Onde encontrar esses clientes</h3>
-            <ul>
-                <li>📱 Instagram — procure perfis com poucas postagens ou conteúdo de baixa qualidade</li>
-                <li>💬 Grupos de WhatsApp de empresários e comércio local</li>
-                <li>🔗 LinkedIn — profissionais liberais e pequenas empresas</li>
-                <li>🏘️ Presencialmente — comércios do seu bairro, leve um cartão e uma amostra</li>
-            </ul>
-
-            <h3>✉️ Mensagem de abordagem que funciona</h3>
-            <div class="caixa-sucesso">
-                "Olá! Notei que seu perfil é ótimo, mas merece conteúdo com mais frequência e qualidade. Trabalho com criação de textos e artes usando Inteligência Artificial — entrego em poucos dias por valor bem acessível. Quer ver um exemplo sem compromisso?"
-            </div>
-        </div>
-    </div>
-
-    <!-- 📚 AULA 4 — SÓ CONTEÚDO DE ENSINO -->
-    <div class="pagina" id="aula4">
-        <div class="conteudo">
-            <h2>📚 Aula 4 — Serviços de Maior Valor: Consultoria e Estratégia</h2>
-
-            <h3>💎 Subindo o nível: serviços que pagam muito mais</h3>
-            <p>Quando dominar o conteúdo básico, você pode oferecer serviços estratégicos. Empresas pagam MUITO mais por soluções que economizam tempo e dinheiro. A IA permite que você ofereça isso sem precisar de equipe.</p>
-
-            <h3>📋 O que entregar numa consultoria</h3>
-            <ol>
-                <li><strong>Diagnóstico:</strong> Apontar onde a empresa perde tempo e dinheiro</li>
-                <li><strong>Plano de ação:</strong> Quais ferramentas usar e quais comandos aplicar</li>
-                <li><strong>Prompts personalizados:</strong> Entregar comandos prontos pra equipe usar</li>
-                <li><strong>Treinamento rápido:</strong> Ensinar a equipe o básico pra seguir</li>
-            </ol>
-
-            <h3>💵 Tabela de preços — Serviços Premium</h3>
-            <table class="tabela">
-                <tr><th>Serviço</th><th>Valor Sugerido</th></tr>
-                <tr><td>Análise e Relatório de Oportunidades</td><td>R$ 300 a R$ 500</td></tr>
-                <tr><td>Pacote de Prompts Personalizados</td><td>R$ 400 a R$ 800</td></tr>
-                <tr><td>Consultoria Mensal (acompanhamento)</td><td>R$ 800 a R$ 1.500/mês</td></tr>
-                <tr><td>Projeto completo de implantação</td><td>A partir de R$ 2.000</td></tr>
-            </table>
-
-            <div class="caixa-perigo">
-                <strong>⚠️ Regra de ouro:</strong> NÃO cobra barato! Você está entregando economia de tempo e dinheiro. Se cobrar pouco, o cliente acha que é pouco valor. Se cobrar justo, valoriza seu trabalho.
-            </div>
-
-            <h3>🚀 Como vender consultoria</h3>
-            <p>Primeiro mostre valor com conteúdo mais simples. Quando o cliente confiar em você, ofereça: "Posso montar um pacote de comandos prontos pra sua equipe usar todos os dias e economizar horas de trabalho. Vale R$ X". Quem já comprou de você tem 10x mais chance de comprar novamente!</p>
-        </div>
-    </div>
-
-    <!-- 📚 AULA 5 — SÓ CONTEÚDO DE ENSINO -->
-    <div class="pagina" id="aula5">
-        <div class="conteudo">
-            <h2>📚 Aula 5 — Seu Plano de Ação de 30 Dias</h2>
-
-            <h3>📅 Semana 1 — Preparação e Domínio</h3>
-            <ul>
-                <li>👉 Estude e pratique os prompts de todas as aulas</li>
-                <li>👉 Teste pelo menos 3 respostas diferentes pra cada comando</li>
-                <li>👉 Crie exemplos de conteúdo pra 3 tipos de negócio</li>
-                <li>👉 Monte seu portfólio em PDF simples com esses exemplos</li>
-                <li>👉 Defina seus preços e anote pra não se confundir</li>
-            </ul>
-
-            <h3>📅 Semana 2 — Primeiros Contatos</h3>
-            <ul>
-                <li>👉 Encontre 50 perfis/clientes em potencial</li>
-                <li>👉 Envie 10 mensagens por dia usando o modelo da Aula 3</li>
-                <li>👉 Apresente seu portfólio quando pedirem</li>
-                <li>👉 Ajuste a abordagem conforme as respostas</li>
-                <li>👉 Ofereça uma amostra grátis de qualidade pra demonstrar valor</li>
-            </ul>
-
-            <h3>📅 Semana 3 — Primeiros Clientes Reais</h3>
-            <ul>
-                <li>👉 Feche pelo menos 1 cliente — não importa o valor, comece!</li>
-                <li>👉 Entregue com qualidade IMPECÁVEL antes do prazo</li>
-                <li>👉 Peça feedback e ajuste o que precisar</li>
-                <li>👉 Peça indicação: "Se conhecer alguém, me indica!"</li>
-                <li>👉 Use esse cliente como prova social pra conseguir mais</li>
-            </ul>
-
-            <h3>📅 Semana 4 — Consolidar e Escalar</h3>
-            <ul>
-                <li>👉 Almeje de 3 a 5 clientes ativos simultaneamente</li>
-                <li>👉 Estabeleça rotina: quantos por dia, quais horários</li>
-                <li>👉 Reinvista tempo em clientes maiores e com mais potencial</li>
-                <li>👉 Aumente seus preços conforme ganha experiência</li>
-                <li>👉 Defina sua meta mensal e trabalhe pra bater</li>
-            </ul>
-
-            <div class="caixa-sucesso">
-                <strong>🏆 Lembre-se sempre:</strong> A IA não substitui VOCÊ. Quem sabe usar IA substitui quem NÃO sabe. Comece HOJE, não amanhã!
-            </div>
-        </div>
-    </div>
-
-    <!-- 🏆 ABA EXCLUSIVA — RESULTADOS DE ALUNOS -->
-    <div class="pagina" id="resultados">
-        <div class="conteudo">
-            <h2>🏆 Resultados Reais de Quem Aplicou o Método</h2>
-            <p style="text-align:center; font-size:1.05rem;">Veja o que pessoas comuns conseguiram aplicando o passo a passo. Ninguém começou sabendo. Todos começaram do zero assim como você.</p>
-
-            <div class="grade-resultados">
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 1.350</div>
-                    <div class="pessoa">Maria Silva <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">Em menos de 3 semanas</div>
-                    <div class="depoimento">"Consegui 3 clientes de conteúdo mensal. Tudo que aprendi aqui apliquei direto. Valeu cada minuto!"</div>
+            document.getElementById("lessonTop").innerHTML = `
+                <span>MÓDULO ${String(selected.id).padStart(2,"0")} · ${selected.label.toUpperCase()}</span>
+                <div>
+                    <small>◷ ${selected.duration}</small>
+                    <small>▤ ${selected.lessons} aulas</small>
                 </div>
+            `;
+            document.getElementById("lessonTitle").textContent = selected.title;
+            document.getElementById("lessonDesc").textContent = selected.description;
 
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 800</div>
-                    <div class="pessoa">Carlos Mendes <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">Em apenas 12 dias</div>
-                    <div class="depoimento">"Meu primeiro fechado foi uma consultoria. Usei o modelo de mensagem e o cliente aceitou na hora!"</div>
-                </div>
+            const topicsDiv = document.getElementById("lessonTopics");
+            topicsDiv.innerHTML = "";
+            selected.topics.forEach((topic, idx) => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <span>${String(idx + 1).padStart(2,"0")}</span>
+                    <p>${topic}</p>
+                    <i>✓</i>
+                `;
+                topicsDiv.appendChild(div);
+            });
 
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 600+</div>
-                    <div class="pessoa">Beatriz Costa <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">Em 3 semanas</div>
-                    <div class="depoimento">"Já estava vendendo pacotes de posts. A fórmula dos 4 elementos mudou completamente meus textos!"</div>
-                </div>
+            renderModules();
+        }
 
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 450</div>
-                    <div class="pessoa">João Pereira <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">Em 18 dias</div>
-                    <div class="depoimento">"Meu primeiro cliente veio do Instagram. Fiz amostra grátis e ele fechou o pacote mensal!"</div>
-                </div>
-
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 1.200/mês</div>
-                    <div class="pessoa">Ana Carolina <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">3 clientes fixos em 1 mês</div>
-                    <div class="depoimento">"Segui o plano de 30 dias à risca. Hoje tenho renda garantida todo mês!"</div>
-                </div>
-
-                <div class="card-resultado">
-                    <div class="icone">💵</div>
-                    <div class="valor">R$ 350</div>
-                    <div class="pessoa">Pedro Henrique <span class="selo-verificado">✓ VERIFICADO</span></div>
-                    <div class="tempo">Primeira venda em 7 dias</div>
-                    <div class="depoimento">"Parece pouco, mas foi minha primeira venda na vida! A porta abriu e agora é só escalar."</div>
-                </div>
-            </div>
-
-            <div class="caixa-destaque" style="text-align:center; margin-top:30px;">
-                <strong>✅ Isso é 100% real:</strong> Ninguém teve sorte. Todos estudaram, praticaram e aplicaram o que aprenderam. Se eles conseguiram, VOCÊ também consegue!
-            </div>
-        </div>
-    </div>
-
-    <!-- 🛠️ FERRAMENTAS -->
-    <div class="pagina" id="ferramentas">
-        <div class="conteudo">
-            <h2>🛠️ Ferramentas que Você Vai Usar</h2>
-            <p>Cada ferramenta explicada de forma simples: para que serve, como ganhar renda com ela e link direto pra acessar.</p>
-
-            <h3>📝 Texto e Conteúdo</h3>
-            <div class="ferramenta-card">
-                <h3>🤖 ChatGPT <span class="etiqueta-gratis">Grátis</span><span class="etiqueta-paga">Plus: ~R$20/mês</span></h3>
-                <p><strong>Para que serve:</strong> A ferramenta mais versátil. Cria textos, ideias, roteiros, revisões — tudo com palavras.</p>
-                <p><strong>💸 Como ganhar:</strong> Conteúdo pra redes, artigos, roteiros, e-mails.</p>
-                <a href="https://chat.openai.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <div class="ferramenta-card">
-                <h3>🔮 Gemini <span class="etiqueta-gratis">100% Grátis</span></h3>
-                <p><strong>Para que serve:</strong> Lê imagens e arquivos. Cria textos com base em fotos e documentos.</p>
-                <p><strong>💸 Como ganhar:</strong> Descrições de produtos, resumos, análises de documentos.</p>
-                <a href="https://gemini.google.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <div class="ferramenta-card">
-                <h3>📄 Claude <span class="etiqueta-gratis">Grátis</span></h3>
-                <p><strong>Para que serve:</strong> Lê documentos longos com precisão. Contratos, relatórios, livros.</p>
-                <p><strong>💸 Como ganhar:</strong> Resumos profissionais, pareceres, análises.</p>
-                <a href="https://claude.ai" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <div class="ferramenta-card">
-                <h3>🔍 Perplexity <span class="etiqueta-gratis">Grátis</span></h3>
-                <p><strong>Para que serve:</strong> Responde com fontes reais e atualizadas. Artigos embasados.</p>
-                <p><strong>💸 Como ganhar:</strong> Conteúdo com dados e referências confiáveis.</p>
-                <a href="https://www.perplexity.ai" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <h3>🎨 Imagem e Vídeo</h3>
-            <div class="ferramenta-card">
-                <h3>🖼️ Bing Image Creator <span class="etiqueta-gratis">Grátis</span></h3>
-                <p><strong>Para que serve:</strong> Cria imagens e artes profissionais sem saber desenhar.</p>
-                <p><strong>💸 Como ganhar:</strong> Artes pra redes, capas, materiais de divulgação.</p>
-                <a href="https://www.bing.com/create" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <div class="ferramenta-card">
-                <h3>✂️ CapCut <span class="etiqueta-gratis">100% Grátis</span></h3>
-                <p><strong>Para que serve:</strong> Edita vídeos com IA — legendas, cortes, efeitos automáticos.</p>
-                <p><strong>💸 Como ganhar:</strong> Edição de vídeos pra clientes.</p>
-                <a href="https://www.capcut.com" target="_blank" class="botao-acessar">🔗 Acessar</a>
-            </div>
-
-            <div class="caixa-destaque">
-                <strong>🎯 Ordem de uso sem gastar:</strong> 1º Gemini → 2º ChatGPT → 3º Bing Imagens → 4º CapCut. Só paga quando já estiver faturando!
-            </div>
-        </div>
-    </div>
-
-    <!-- 🎁 BÔNUS -->
-    <div class="pagina" id="bonus">
-        <div class="conteudo">
-            <h2>🎁 Bônus Exclusivos — Material Completo pra Copiar e Usar</h2>
-
-            <h3>📋 Mensagens prontas pra clientes</h3>
-            <div class="caixa-sucesso">
-                <strong>✅ Abordagem:</strong> "Olá! Notei que seu perfil é ótimo, mas merece conteúdo com mais frequência e qualidade. Trabalho com criação de textos e artes usando IA — entrego em poucos dias por valor acessível. Quer ver um exemplo?"
-            </div>
-            <div class="caixa-sucesso">
-                <strong>✅ Fechamento:</strong> "Ficou combinado! Entrego em até 2 dias úteis. Valor R$ [VALOR]. Pode ser por Pix. Obrigado!"
-            </div>
-
-            <h3>📝 Prompts prontos</h3>
-            <div class="caixa-sucesso">
-                "Atue como especialista em marketing. Crie um post sobre [TEMA]. Linguagem amigável. Termine com pergunta. Máximo 4 linhas."
-            </div>
-
-            <h3>💰 Tabela de Preços Completa</h3>
-            <table class="tabela">
-                <tr><th>Serviço</th><th>Mínimo</th><th>Ideal</th></tr>
-                <tr><td>Post de texto</td><td>R$ 35</td><td>R$ 50</td></tr>
-                <tr><td>Pacote 15 Posts</td><td>R$ 450</td><td>R$ 600</td></tr>
-                <tr><td>Artigo 500 palavras</td><td>R$ 80</td><td>R$ 120</td></tr>
-                <tr><td>Consultoria 1h</td><td>R$ 150</td><td>R$ 300</td></tr>
-            </table>
-
-            <h3>📋 Checklist de Entrega</h3>
-            <ul>
-                <li>✅ Entregou no prazo?</li>
-                <li>✅ Perguntou se precisa de ajustes?</li>
-                <li>✅ Agradeceu?</li>
-                <li>✅ Pediu indicação?</li>
-            </ul>
-
-            <h3>🚫 Erros pra Evitar</h3>
-            <ul>
-                <li>❌ Prometer resultados garantidos</li>
-                <li>❌ Cobrar barato demais</li>
-                <li>❌ Entregar sem revisar</li>
-                <li>❌ Demorar pra responder</li>
-            </ul>
-
-            <div class="caixa-destaque">
-                <strong>🏆 Dica de Ouro:</strong> Use tudo HOJE. Não espere estar pronto — comece incompleto e melhore com o tempo! 🚀
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    <p>© 2026 IA na Prática — Conteúdo Completo e Atualizado</p>
-    <p>✅ 100% Certificado e Aprovado por Profissionais | ✅ Atualizado em 2026</p>
-</footer>
-
-<script>
-    const botoes = document.querySelectorAll('.menu-btn');
-    const paginas = document.querySelectorAll('.pagina');
-
-    botoes.forEach(botao => {
-        botao.addEventListener('click', () => {
-            botoes.forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-            paginas.forEach(p => p.classList.remove('visivel'));
-            document.getElementById(botao.dataset.pagina).classList.add('visivel');
+        document.getElementById("searchInput").addEventListener("input", (e) => {
+            searchQuery = e.target.value;
+            renderModules();
         });
-    });
-</script>
 
+        // Inicializa
+        renderModules();
+        selectModule(1);
+    </script>
 </body>
 </html>
